@@ -12,7 +12,29 @@ html {
     --footer-color: #373a3c;
     --bgb-color: #000000ef;
     --bg-color: #000000;
-    --g1-color: #000;
+    --home-color: rgb(255, 117, 117);
+    --gallery-color: rgb(255, 117, 117);
+}
+
+#cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease;
+}
+
+.particle {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgb(255, 117, 117);
+    pointer-events: none;
+    opacity: 1;
+    box-shadow: 0 0 9px rgb(255, 102, 0), 0 0 12px rgb(255, 72, 0);
 }
 
 body {
@@ -24,7 +46,7 @@ body {
     overflow: hidden;
     scroll-behavior: smooth;
     background-color: var(--bg-color);
-
+    cursor: url(img/Illustration3.png), auto;
 }
 
 section {
@@ -34,10 +56,6 @@ section {
 
 #home {
     height: auto;
-}
-
-#work {
-    height: 100vh auto;
 
 }
 
@@ -51,7 +69,7 @@ section {
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    z-index: 3;
+    z-index: 9;
     font-weight: bold;
     background-color: var(--bgb-color);
     height: 4rem;
@@ -74,17 +92,62 @@ section {
     text-decoration: none;
 }
 
-.ho0 {
+.bar a {
+    color: inherit;
+}
+
+.bar.section-1 a[href="#home"] {
+    color: var(--home-color);
+}
+
+.bar.section-1 a[href="#artwork"] {
+    color: rgb(255, 255, 255);
+}
+
+.bar.section-2 a[href="#home"] {
+    color: rgb(255, 255, 255);
+
+}
+
+.bar.section-2 a[href="#artwork"] {
+    color: var(--gallery-color);
+}
+
+.bar.section-1 a[href="https://ko-fi.com/soul111"] {
+    color: rgb(255, 255, 255);
+}
+
+.bar.section-2 a[href="https://ko-fi.com/soul111"] {
+    color: rgb(255, 255, 255);
+}
+
+.bio {
     display: grid;
-    justify-content: center;
+    line-height: 3px;
     text-align: center;
-    position: relative;
-    top: 50vh;
-    z-index: 1;
-    line-height: 1px;
-    color: #fff;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: 22px;
-    user-select: none;
+    color: #fff;
+    z-index: 5;
+}
+
+.bio h1 {
+    letter-spacing: 12px;
+    position: relative;
+    left: 5px;
+
+}
+
+.bio p {
+    font-size: medium;
+    line-height: 2;
+    margin: 0;
+
 }
 
 .ho1 {
@@ -92,13 +155,49 @@ section {
     bottom: 4rem;
 }
 
-.ho1 img {
+.link {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px 5px;
+    border-radius: 10px 0 0 10px;
+    z-index: 7;
+}
+
+.link img {
+    filter: invert(100%);
+    width: 36px;
+    height: 36px;
+    opacity: 0;
+    animation: fade 2s forwards;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.link img:hover {
+    transform: scale(1.2);
+    filter: invert(70%);
+}
+
+.ho1 video {
     pointer-events: none;
     user-select: none;
     width: 1920px;
-    height: 920px;
-    filter: brightness(50%);
+    height: 1000px;
     object-fit: cover;
+    filter: brightness(50%);
 }
 
 .inner {
@@ -110,48 +209,14 @@ section {
 
 }
 
-.ab {
-    position: relative;
-    top: 9rem;
-    bottom: 60px;
-    margin: 3rem;
-    left: 5rem;
-    margin-bottom: 9rem;
-    line-height: 1rem;
-    color: var(--ab-color);
-}
-
 .bg {
     position: relative;
-
 }
 
 .bg img {
     position: relative;
     right: 10rem;
     width: 100%;
-}
-
-.name h1 {
-    font-family: "Great Vibes", cursive;
-}
-
-.link {
-    display: flex;
-    align-items: center;
-    position: relative;
-    bottom: 8px;
-    gap: 8px;
-
-}
-
-.link a {
-    color: var(--link-color);
-    text-decoration: none;
-}
-
-.link a:hover {
-    text-decoration: underline;
 }
 
 .g1 {
@@ -173,7 +238,6 @@ section {
     margin: 0 auto;
     padding: 0;
     margin-top: 4rem;
-
 }
 
 .gallery-item {
@@ -275,6 +339,8 @@ section {
 }
 
 @media (max-width: 600px) {
+
+
     .logo0 {
         padding: 1rem;
     }
@@ -296,24 +362,9 @@ section {
         margin-bottom: 4rem;
     }
 
-    .ab {
-        left: 0;
-        font-size: small;
-        top: 3rem;
-    }
-
     .bg {
         width: 100%;
         height: 8rem;
     }
-
-    .link {
-        font-size: smaller;
-    }
-
-    .caption p {
-        font-size: smaller;
-    }
-
 
 }

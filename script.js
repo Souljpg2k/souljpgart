@@ -27,6 +27,8 @@ if (!gallery) {
         });
     }, { threshold: 0.1 });
 
+    const fragment = document.createDocumentFragment();
+
     galleryData.forEach(item => {
         const card = document.createElement("div");
         card.className = "gallery-item";
@@ -34,11 +36,14 @@ if (!gallery) {
         const img = document.createElement("img");
         img.src = item.img;
         img.alt = "";
+        img.loading = "lazy";
 
         card.appendChild(img);
-        gallery.appendChild(card);
+        fragment.appendChild(card);
         observer.observe(card);
     });
+
+    gallery.appendChild(fragment); // 
 }
 
 const lightbox = document.createElement("div");
@@ -150,3 +155,61 @@ window.addEventListener('touchend', e => {
 }, { passive: true });
 
 
+
+const bar = document.querySelector('.bar');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            bar.classList.remove('section-1', 'section-2');
+            if (entry.target.id === 'home') {
+                bar.classList.add('section-1');
+            } else if (entry.target.id === 'artwork') {
+                bar.classList.add('section-2');
+            }
+        }
+    });
+}, { threshold: 0.6 });
+
+sections.forEach(section => observer.observe(section));
+
+const cursor = document.getElementById('cursor');
+
+document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+
+    createParticle(e.clientX, e.clientY);
+});
+
+function createParticle(x, y) {
+    const particle = document.createElement('div');
+    particle.classList.add('particle');
+    document.body.appendChild(particle);
+
+    particle.style.left = x + 'px';
+    particle.style.top = y + 'px';
+
+    const size = Math.random() * 4 + 2;
+    particle.style.width = size + 'px';
+    particle.style.height = size + 'px';
+
+    const angle = Math.random() * 2 * Math.PI;
+    const distance = Math.random() * 30 + 10;
+
+    const dx = Math.cos(angle) * distance;
+    const dy = Math.sin(angle) * distance;
+
+    particle.animate([
+        { transform: `translate(0,0)`, opacity: 1 },
+        { transform: `translate(${dx}px, ${dy}px)`, opacity: 0 }
+    ], {
+        duration: 500 + Math.random() * 300,
+        easing: 'ease-out',
+        fill: 'forwards'
+    });
+
+    setTimeout(() => {
+        particle.remove();
+    }, 800);
+}
