@@ -2,12 +2,8 @@ const galleryData = [
     { img: "img/CSJPG.jpg" },
     { img: "img/dream.jpg" },
     { img: "img/lab.jpg" },
-    { img: "img/1462568.jpg" },
+    { img: "img/1366.jpg" },
     { img: "img/2572568.jpg" },
-    { img: "img/blue!.JPG" },
-    { img: "img/xcxcxvsdsesse.jpg" },
-    { img: "img/182568.jpg" },
-    { img: "img/keyboard.jpg" },
     { img: "img/nurse.png" },
     { img: "img/perfect blue.jpg" },
 
