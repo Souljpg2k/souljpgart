@@ -1,5 +1,5 @@
 const galleryData = [
-    { title: "Torii", description: "Arknights", img: "img/221068.png" },
+    { title: "Torii", description: "Arknights", img: "img/20102568.jpg" },
     { title: "CS001", description: "Crime Scene", img: "img/CSJPG.jpg" },
     { title: "Laboratory", description: "LB001", img: "img/lapart.jpg" },
     { title: "Dream", description: "My Dream", img: "img/dream542568.jpg" },
