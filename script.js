@@ -4,9 +4,7 @@ const galleryData = [
     { title: "Laboratory", description: "LB001", img: "img/lapart.jpg" },
     { title: "Dream", description: "My Dream", img: "img/dream542568.jpg" },
     { title: "Torii,N", description: "Torii", img: "img/ToriiN.jpg" },
-    { title: "SSS", description: "Sky", img: "img/sky.jpg" },
     { title: "Demon", description: "Demon White", img: "img/bgh.jpg" },
-    { title: "Owl", description: "Night", img: "img/1472567.jpg" },
 ];
 
 const gallery = document.getElementById('gallery');
@@ -106,93 +104,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('section');
-    let currentSectionIndex = 0;
-    let isScrolling = false;
-    let touchStartY = 0;
-    const touchThreshold = 50;
-
-    function initializeScroll() {
-        sections[0].scrollIntoView({ behavior: 'auto', block: 'start' });
-    }
-    initializeScroll();
-
-
-    function scrollToSection(index) {
-        if (index >= 0 && index < sections.length) {
-            isScrolling = true;
-            currentSectionIndex = index;
-
-            sections[index].scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-
-            setTimeout(() => {
-                isScrolling = false;
-            }, 800);
-        }
-    }
-
-
-    window.addEventListener('wheel', (e) => {
-        if (isScrolling) {
-            e.preventDefault();
-            return;
-        }
-
-        const activeContent = sections[currentSectionIndex].querySelector('.section-content');
-        if (!activeContent) return;
-
-        const maxScrollTop = activeContent.scrollHeight - activeContent.clientHeight;
-        const isAtTop = activeContent.scrollTop === 0;
-        const isAtBottom = activeContent.scrollTop >= maxScrollTop;
-
-        if (e.deltaY < 0) {
-            if (!isAtTop) {
-                return;
-            }
-            scrollToSection(currentSectionIndex - 1);
-            e.preventDefault();
-
-        } else if (e.deltaY > 0) {
-            if (!isAtBottom) {
-
-                return;
-            }
-            scrollToSection(currentSectionIndex + 1);
-            e.preventDefault();
-        }
-    }, { passive: false });
-
-    document.addEventListener('touchstart', (e) => {
-        touchStartY = e.touches[0].clientY;
-    });
-
-    document.addEventListener('touchend', (e) => {
-        if (isScrolling) {
-            return;
-        }
-
-        const touchEndY = e.changedTouches[0].clientY;
-        const deltaY = touchEndY - touchStartY;
-
-        const activeContent = sections[currentSectionIndex].querySelector('.section-content');
-        if (!activeContent) return;
-
-        const maxScrollTop = activeContent.scrollHeight - activeContent.clientHeight;
-        const isAtTop = activeContent.scrollTop === 0;
-        const isAtBottom = activeContent.scrollTop >= maxScrollTop;
-
-        if (deltaY < -touchThreshold) {
-            if (!isAtBottom) return;
-            scrollToSection(currentSectionIndex + 1);
-
-        } else if (deltaY > touchThreshold) {
-            if (!isAtTop) return;
-            scrollToSection(currentSectionIndex - 1);
-        }
-    });
-
-});
