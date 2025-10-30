@@ -3,6 +3,8 @@ const galleryData = [
     { title: "CS001", description: "Crime Scene", img: "img/CSJPG.jpg" },
     { title: "Laboratory", description: "LB001", img: "img/lapart.jpg" },
     { title: "Dream", description: "My Dream", img: "img/dream542568.jpg" },
+    { title: "Torii,N", description: "Torii", img: "img/ToriiN.jpg" },
+    { title: "Sky", description: "Sky", img: "img/sky.jpg" },
 ];
 
 const gallery = document.getElementById('gallery');
@@ -11,12 +13,12 @@ galleryData.forEach(item => {
     const card = document.createElement('div');
     card.className = 'gallery-item';
     card.innerHTML = `
-        <img src="${item.img}" alt="${item.title}" />
-        <div class="caption">
-          <h3 class="title">${item.title}</h3>
-          <p>${item.description}</p>
-        </div>
-    `;
+    <img src="${item.img}" alt="${item.title}" />
+    <div class="caption">
+      <h3 class="title">${item.title}</h3>
+      <p>${item.description}</p>
+    </div>
+  `;
     gallery.appendChild(card);
 });
 
@@ -25,7 +27,8 @@ const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('show');
-            observer.unobserve(entry.target);
+        } else {
+            entry.target.classList.remove('show');
         }
     });
 }, { threshold: 0.1 });
@@ -33,6 +36,7 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.gallery-item').forEach(item => {
     observer.observe(item);
 });
+
 
 const backToTopBtn = document.getElementById("backToTop");
 
@@ -57,4 +61,11 @@ const menu = document.getElementById("menu");
 menuBtn.addEventListener("click", () => {
     menu.classList.toggle("show");
     menuBtn.classList.toggle("open");
+});
+
+
+const hamburger = document.querySelector('.hamburger');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
 });

@@ -6,7 +6,7 @@
 :root {
     --bg-color: #fff;
     --bar-color: #fff;
-    --bar3-color: #000;
+    --bar3-color: rgba(51, 51, 51, 1.00);
 }
 
 body {
@@ -14,6 +14,8 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--bg-color);
+    scroll-behavior: smooth;
+    height: 100vh;
 }
 
 .inner {
@@ -31,12 +33,19 @@ body {
 }
 
 .logo {
-    color: #000;
-    padding: 2rem;
+    color: rgba(51, 51, 51, 1.00);
 }
 
-.bar0 {
-    padding: 2rem;
+@font-face {
+    font-family: 'logo';
+    src: url(font/Nero.otf);
+    font-style: normal;
+    font-weight: normal;
+}
+
+.logo h1 {
+    font-family: 'logo';
+    font-weight: bolder;
 }
 
 .bar0 a {
@@ -51,7 +60,6 @@ body {
 
 .hamburger {
     display: none;
-    margin: 1rem;
     flex-direction: column;
     justify-content: space-between;
     width: 28px;
@@ -60,21 +68,47 @@ body {
     border: none;
     cursor: pointer;
     padding: 0;
-    background-color: #fff;
+    position: relative;
+    transition: transform 0.3s ease;
 }
 
 .hamburger span {
     display: block;
     height: 3px;
-    background: #000000;
+    background: rgba(51, 51, 51, 1.00);
     border-radius: 3px;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
+    transform-origin: center;
+}
+
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
+.hamburger:hover span {
+    background: rgba(51, 51, 51, 1.00);
+    transform: scaleX(1.1);
 }
 
 .ab {
     position: relative;
     margin-top: 6rem;
-    margin-left: 3rem;
+    margin-left: 1rem;
+    line-height: 8px;
+    color: rgba(51, 51, 51, 1.00);
+}
+
+.ab h1 {
     animation: a 0.8s forwards ease-in-out;
 }
 
@@ -82,6 +116,22 @@ body {
     from {
         opacity: 0;
         transform: translatey(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translatey(0);
+    }
+}
+
+.ab p {
+    animation: b 0.8s forwards ease-in-out;
+}
+
+@keyframes b {
+    from {
+        opacity: 0;
+        transform: translatey(20px);
     }
 
     to {
@@ -104,7 +154,7 @@ body {
     background: var(--g-color, #fff);
     color: var(--tg-color, #333);
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
@@ -120,6 +170,10 @@ body {
     width: 100%;
     height: auto;
     display: block;
+}
+
+.gallery img {
+    user-select: none;
 }
 
 .caption {
@@ -142,18 +196,15 @@ body {
 
 #backToTop {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    inset: auto 20px 20px auto;
     width: 40px;
     height: 40px;
     background: #333;
     border: none;
-    border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 0 6px;
     opacity: 0;
     pointer-events: none;
     transform: translateY(20px);
@@ -181,15 +232,30 @@ body {
     margin-top: 9px;
 }
 
+
+h2 {
+    text-align: center;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+
 @media (max-width: 1300px) {
     .gallery {
         column-count: 1;
     }
+
+    footer {
+        margin-top: 0;
+    }
+
 }
 
 @media (max-width: 600px) {
+
     .gallery {
         column-count: 1;
+        margin-top: 35px;
     }
 
     .hamburger {
@@ -199,18 +265,34 @@ body {
 
     .bar0 {
         position: absolute;
-        top: 64.5px;
+        top: 65px;
         right: 0;
-        background: var(--ham-color);
-        display: none;
+        display: flex;
         flex-direction: column;
+        gap: 0.5rem;
         padding: 1rem;
-        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-        background-color: #fff;
-        z-index: 99;
+        background-color: #ffffffee;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        opacity: 0;
+        transform: translatex(20px);
+        pointer-events: none;
+        transition: opacity 0.4s ease, transform 0.4s ease;
     }
 
     .bar0.show {
-        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .bar0 a {
+        text-decoration: none;
+        color: rgba(51, 51, 51, 1.00);
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    .bar0 a:hover {
+        color: #555;
     }
 }
