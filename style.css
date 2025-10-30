@@ -7,6 +7,19 @@
     --bg-color: #fff;
     --bar-color: #fff;
     --bar3-color: rgba(51, 51, 51, 1.00);
+    --logo-color: rgba(51, 51, 51, 1.00);
+    --ab-color: rgba(51, 51, 51, 1.00);
+}
+
+@font-face {
+    font-family: 'logo';
+    src: url(font/Nero.otf);
+    font-style: normal;
+    font-weight: normal;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -14,8 +27,47 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--bg-color);
-    scroll-behavior: smooth;
+    height: 100%;
+    overflow: hidden;
+
+}
+
+section {
     height: 100vh;
+    width: 100vw;
+}
+
+.section-content {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+}
+
+
+.section-content::-webkit-scrollbar {
+    display: none;
+}
+
+#Work {
+    overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f0f0f0;
+}
+
+::-webkit-scrollbar-thumb {
+    cursor: cell;
+    background: #9bd7ff;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
 }
 
 .inner {
@@ -28,29 +80,18 @@ body {
     padding: 0rem 1rem 0rem 1rem;
     width: 100%;
     height: 4rem;
-    box-shadow: 0 0 2px #929292;
     background-color: var(--bar-color);
 }
 
 .logo {
-    color: rgba(51, 51, 51, 1.00);
-}
-
-@font-face {
-    font-family: 'logo';
-    src: url(font/Nero.otf);
-    font-style: normal;
-    font-weight: normal;
-}
-
-.logo h1 {
+    padding-left: 1rem;
     font-family: 'logo';
     font-weight: bolder;
+    color: var(--logo-color);
 }
 
 .bar0 a {
     color: var(--bar3-color);
-    font-weight: bold;
     padding: 1rem;
 }
 
@@ -59,7 +100,7 @@ body {
 }
 
 .hamburger {
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 28px;
@@ -100,38 +141,41 @@ body {
     transform: scaleX(1.1);
 }
 
-.ab {
-    position: relative;
-    margin-top: 6rem;
-    margin-left: 1rem;
-    line-height: 8px;
-    color: rgba(51, 51, 51, 1.00);
+.bgh video {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
 }
 
-.ab h1 {
+.ab {
+    position: relative;
+    padding-left: 1rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    top: 5rem;
+    color: var(--ab-color);
+}
+
+.ab h1,
+.ab p {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: none;
+}
+
+.ab h1.animate-on-scroll {
     animation: a 0.8s forwards ease-in-out;
+}
+
+.ab p.animate-on-scroll {
+    animation: a 0.8s forwards ease-in-out;
+    animation-delay: 0.2s;
 }
 
 @keyframes a {
     from {
         opacity: 0;
-        transform: translatey(-20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translatey(0);
-    }
-}
-
-.ab p {
-    animation: b 0.8s forwards ease-in-out;
-}
-
-@keyframes b {
-    from {
-        opacity: 0;
-        transform: translatey(20px);
+        transform: translatey(-8px);
     }
 
     to {
@@ -144,7 +188,7 @@ body {
     column-count: 4;
     column-gap: 1rem;
     max-width: 100%;
-    margin: 5rem auto 2rem;
+    margin: 8rem auto 2rem;
     padding: 0 1rem;
 }
 
@@ -239,40 +283,16 @@ h2 {
     margin-bottom: 10px;
 }
 
-
-@media (max-width: 1300px) {
-    .gallery {
-        column-count: 1;
-    }
-
-    footer {
-        margin-top: 0;
-    }
-
-}
-
-@media (max-width: 600px) {
-
-    .gallery {
-        column-count: 1;
-        margin-top: 35px;
-    }
-
-    .hamburger {
-        display: flex;
-
-    }
-
+@media (min-width:400px) {
     .bar0 {
         position: absolute;
-        top: 65px;
+        top: 64px;
         right: 0;
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
         padding: 1rem;
-        background-color: #ffffffee;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        background-color: #fff;
         opacity: 0;
         transform: translatex(20px);
         pointer-events: none;
@@ -286,13 +306,60 @@ h2 {
     }
 
     .bar0 a {
-        text-decoration: none;
         color: rgba(51, 51, 51, 1.00);
         font-weight: 500;
         transition: color 0.3s ease;
     }
 
     .bar0 a:hover {
-        color: #555;
+        color: #6cd5ff;
     }
+
+}
+
+@media (max-width: 1300px) {
+    .gallery {
+        column-count: 1;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .gallery {
+        column-count: 1;
+        margin-top: 7rem;
+    }
+
+}
+
+.bar0 {
+    position: absolute;
+    top: 64px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    background-color: #fff;
+    opacity: 0;
+    transform: translatex(20px);
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.bar0.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.bar0 a {
+    color: rgba(51, 51, 51, 1.00);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.bar0 a:hover {
+    color: #92e0ff;
 }
