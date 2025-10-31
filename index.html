@@ -23,7 +23,7 @@
     <header>
         <div class="inner">
             <div class="logo">
-                <h1>SOULJPG</h1>
+                <a href="#Home">SOULJPG</a>
             </div>
 
             <button class="hamburger" id="menu-btn" aria-label="Toggle Menu">
@@ -33,12 +33,11 @@
             </button>
 
             <nav class="bar0" id="menu">
-                <a href="#Home">Home</a>
-                <a href="#Work">Work</a>
-                <a href="https://www.pixiv.net/en/users/73130815">Pixiv</a>
-                <a href="https://x.com/souljpg_">Twitter</a>
-                <a href="https://ko-fi.com/soul111">Donate</a>
+                <a href="#Home">HOME</a>
+                <a href="#Work">WORK</a>
+                <a href="https://ko-fi.com/soul111">DONATE</a>
             </nav>
+
         </div>
     </header>
 
@@ -55,14 +54,21 @@
                 <p>Illustrator & Concept art</p>
             </div>
         </div>
+
         <div class="gallery" id="gallery"></div>
+        <div id="lightbox" class="lightbox">
+            <span class="close">&times;</span>
+            <img class="lightbox-img" src="" alt="Gallery Image">
+            <button class="prev">&#10094;</button>
+            <button class="next">&#10095;</button>
+        </div>
     </section>
 
     <button id="backToTop">
         <span class="chevron"></span>
     </button>
 
-
+    <audio id="hoverSound" src="sound/hover.mp3"></audio>
     <script src="script.js"></script>
 </body>
 

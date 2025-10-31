@@ -1,10 +1,8 @@
 const galleryData = [
-    { title: "Torii", description: "Arknights", img: "img/20102568.jpg" },
-    { title: "CS001", description: "Crime Scene", img: "img/CSJPG.jpg" },
-    { title: "Laboratory", description: "LB001", img: "img/lapart.jpg" },
-    { title: "Dream", description: "My Dream", img: "img/dream542568.jpg" },
-    { title: "Torii,N", description: "Torii", img: "img/ToriiN.jpg" },
-    { title: "Demon", description: "Demon White", img: "img/bgh.jpg" },
+    { img: "img/20102568.jpg" },
+    { img: "img/CSJPG.jpg" },
+    { img: "img/lapart.jpg" },
+    { img: "img/dream542568.jpg" },
 ];
 
 const gallery = document.getElementById('gallery');
@@ -12,16 +10,9 @@ const gallery = document.getElementById('gallery');
 galleryData.forEach(item => {
     const card = document.createElement('div');
     card.className = 'gallery-item';
-    card.innerHTML = `
-    <img src="${item.img}" alt="${item.title}" />
-    <div class="caption">
-      <h3 class="title">${item.title}</h3>
-      <p>${item.description}</p>
-    </div>
-  `;
+    card.innerHTML = `<img src="${item.img}" alt="Gallery Image" />`;
     gallery.appendChild(card);
 });
-
 
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -36,6 +27,54 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.gallery-item').forEach(item => {
     observer.observe(item);
 });
+
+
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.querySelector('.lightbox-img');
+const closeBtn = document.querySelector('.close');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+
+let currentIndex = 0;
+
+function openLightbox(index) {
+    currentIndex = index;
+    lightboxImg.src = galleryData[currentIndex].img;
+    lightbox.classList.add('active');
+}
+
+function closeLightbox() {
+    lightbox.classList.remove('active');
+}
+
+function showNext() {
+    currentIndex = (currentIndex + 1) % galleryData.length;
+    lightboxImg.src = galleryData[currentIndex].img;
+}
+
+function showPrev() {
+    currentIndex = (currentIndex - 1 + galleryData.length) % galleryData.length;
+    lightboxImg.src = galleryData[currentIndex].img;
+}
+
+document.querySelectorAll('.gallery-item img').forEach((img, index) => {
+    img.addEventListener('click', () => openLightbox(index));
+});
+
+closeBtn.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+
+
+nextBtn.addEventListener('click', showNext);
+prevBtn.addEventListener('click', showPrev);
+
+document.addEventListener('keydown', e => {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'ArrowRight') showNext();
+    if (e.key === 'ArrowLeft') showPrev();
+    if (e.key === 'Escape') closeLightbox();
+});
+
 
 
 const backToTopBtn = document.getElementById("backToTop");
@@ -65,7 +104,6 @@ menuBtn.addEventListener("click", () => {
     menuBtn.classList.toggle("open");
     hamburger.classList.toggle('active');
 });
-
 
 const menuLinks = menu.querySelectorAll("a");
 
@@ -101,6 +139,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     sectionsToObserve.forEach(section => {
         observer.observe(section);
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const links = document.querySelectorAll('.bar0 a');
+    const audio = document.getElementById('hoverSound');
+
+
+    links.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            audio.currentTime = 0;
+            audio.play();
+        });
+        link.addEventListener('mouseleave', () => {
+            audio.pause();
+        });
     });
 });
 
