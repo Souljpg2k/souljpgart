@@ -1,117 +1,161 @@
 * {
     box-sizing: border-box;
+    text-decoration: none;
+}
+
+:root {
+    --bg-color: #fff;
+    --bar-color: #fff;
+    --bar3-color: rgba(51, 51, 51, 1.00);
+    --logo-color: rgba(51, 51, 51, 1.00);
+    --ab-color: rgba(51, 51, 51, 1.00);
+    --hvb-color: rgb(255, 255, 255);
+}
+
+@font-face {
+    font-family: 'logo';
+    src: url(font/Nero.otf);
+    font-style: normal;
+    font-weight: normal;
 }
 
 html {
     scroll-behavior: smooth;
 }
 
-:root {
-    --bgb-color: #000000e8;
-    --home-color: rgb(101, 211, 255);
-    --gallery-color: rgb(101, 211, 255);
-    --bggallery-color: rgb(21, 21, 23);
-    --ham-color: #000000e8;
-}
-
-
-.particle {
-    position: fixed;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: rgb(93, 244, 255);
-    pointer-events: none;
-    opacity: 1;
-    box-shadow: 0 0 9px rgb(73, 182, 255), 0 0 12px rgb(46, 130, 255);
-}
 
 body {
+    font-family: "Roboto", sans-serif;
     margin: 0;
     padding: 0;
-    font-family: "Special Gothic", sans-serif;
-    font-optical-sizing: auto;
-    overflow-y: scroll;
-    overflow: hidden;
-    scroll-behavior: smooth;
+    background-color: var(--bg-color);
 }
 
-section {
-    height: 100vh;
-    overflow: hidden;
+::-webkit-scrollbar {
+    width: 7px;
 }
 
-#home {
-    height: auto;
+::-webkit-scrollbar-track {
+    background: #f0f0f0;
 }
 
-#artwork {
-    height: 100vh auto;
-    overflow-y: auto;
-    background-color: var(--bggallery-color);
+::-webkit-scrollbar-thumb {
+    background: #d3d3d3;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
 }
 
-.co0 {
+
+.inner {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     position: fixed;
-    z-index: 9;
-    font-weight: bold;
-    background-color: var(--bgb-color);
-    height: 4rem;
+    z-index: 1;
+    top: 0;
+    padding: 0rem 1rem 0rem 1rem;
     width: 100%;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 0 15px;
+    height: 4rem;
+    background-color: var(--bar-color);
 }
 
-.logo0 {
-    color: #fff;
-    padding: 4rem;
+.logo {
+    padding-left: 1rem;
+    font-family: 'logo';
+    font-weight: bolder;
+    color: var(--logo-color);
+    user-select: none;
 }
 
-.bar {
-    padding: 4rem;
+.logo a {
+    font-size: 30px;
+    color: var(--logo-color);
 }
 
-.bar a {
-    color: #fff;
+.link {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+    right: 0;
+    left: 0;
+    z-index: 9;
+    opacity: 0;
+    transition: 0.2s all ease-in-out;
+    transform: translatey(-20px);
+    pointer-events: none;
+}
+
+.link svg {
+    width: 40px;
+    height: 40px;
+
+}
+
+.link a {
+    transition: 0.2s all ease-in-out;
+}
+
+.link.show {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.link a:hover {
+    transform: scale(1.2);
+    filter: brightness(200%);
+}
+
+.bar0 {
+    position: absolute;
+    top: 64px;
+    right: 0;
+    left: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 7rem;
+    background-color: #ffffff9d;
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    transform: translatey(-20px);
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.bar0 a {
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: 10%;
+    font-size: 24px;
+    font-weight: 500;
+    height: 5px;
+    background-color: rgb(255, 255, 255);
     padding: 1rem;
-    text-decoration: none;
+    user-select: none;
+    color: var(--bar3-color);
+    transition: 0.2s all ease-in-out;
 }
 
-.bar a {
-    color: inherit;
+.bar0.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }
 
-.bar.section-1 a[href="#home"] {
-    color: var(--home-color);
+.bar0 a:hover {
+    transform: scale(1.1);
+    color: var(--hvb-color);
+    background-color: rgba(51, 51, 51, 1.00);
 }
 
-.bar.section-1 a[href="#artwork"] {
-    color: rgb(255, 255, 255);
-}
-
-.bar.section-2 a[href="#home"] {
-    color: rgb(255, 255, 255);
-
-}
-
-.bar.section-2 a[href="#artwork"] {
-    color: var(--gallery-color);
-}
-
-.bar.section-1 a[href="https://ko-fi.com/soul111"] {
-    color: rgb(255, 255, 255);
-}
-
-.bar.section-2 a[href="https://ko-fi.com/soul111"] {
-    color: rgb(255, 255, 255);
-}
 
 .hamburger {
-    display: none;
-    margin: 1rem;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 28px;
@@ -125,119 +169,100 @@ section {
 .hamburger span {
     display: block;
     height: 3px;
-    background: #000000;
+
+    background: rgba(51, 51, 51, 1.00);
     border-radius: 3px;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
+    transform-origin: center;
 }
 
-.bio {
-    display: grid;
-    line-height: 3px;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 22px;
-    color: #fff;
-    z-index: 5;
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
 }
 
-.bio h1 {
-    letter-spacing: 12px;
-    position: relative;
-    left: 5px;
+.hamburger.active span:nth-child(2) {
     opacity: 0;
-    animation: fade 2s forwards;
-
 }
 
-.bio p {
-    font-size: medium;
-    line-height: 2;
-    margin: 0;
-    opacity: 0;
-    animation: fade 3s forwards;
-
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
 }
 
-.bg1 {
+
+.hamburger:hover span {
+    background: rgba(51, 51, 51, 1.00);
+    transform: scaleX(1.1);
+}
+
+.bgh video {
     position: relative;
-}
-
-.bg1 img {
-    pointer-events: none;
-    user-select: none;
-    position: relative;
-    transform: scale(1.3);
-    top: 4rem;
     width: 100%;
     height: 100vh;
     object-fit: cover;
-    filter: brightness(50%);
+    animation: a 0.8s forwards ease-in-out;
+    user-select: none;
 }
 
-.link {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding: 10px 5px;
-    border-radius: 10px 0 0 10px;
-    z-index: 7;
+.ab {
+    position: relative;
+    padding-left: 1rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    top: 5rem;
+    user-select: none;
+    color: var(--ab-color);
 }
 
-.link img {
-    filter: invert(100%);
-    width: 36px;
-    height: 36px;
+.ab h1,
+.ab p {
     opacity: 0;
-    animation: fade 2s forwards;
+    transform: translateY(20px);
+    transition: none;
 }
 
-@keyframes fade {
+.ab h1.animate-on-scroll {
+    animation: a 0.8s forwards ease-in-out;
+}
+
+.ab p.animate-on-scroll {
+    animation: a 0.8s forwards ease-in-out;
+    animation-delay: 0.2s;
+}
+
+@keyframes a {
     from {
         opacity: 0;
+        transform: translatey(-8px);
     }
 
     to {
         opacity: 1;
+        transform: translatey(0);
     }
-}
-
-.link img:hover {
-    transform: scale(1.2);
-    filter: invert(70%);
 }
 
 .gallery {
     column-count: 4;
-    column-gap: 0;
+    column-gap: 1rem;
     max-width: 100%;
-    margin: 0 auto;
-    padding: 10rem;
-    margin-top: 4rem;
+    margin: 8rem auto 2rem;
+    padding: 0 1rem;
 }
 
 .gallery-item {
-    cursor: pointer;
     break-inside: avoid;
-    margin: 0;
+    margin-bottom: 1rem;
+    background: var(--g-color, #fff);
+    color: var(--tg-color, #333);
     overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     opacity: 0;
-    filter: blur(4px);
-    transform: translateY(5px);
-    transition: opacity 1s ease-in-out, transform 2s ease-in-out;
-    will-change: opacity, transform, filter;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .gallery-item.show {
-    filter: blur(0);
     opacity: 1;
     transform: translateY(0);
 }
@@ -246,137 +271,34 @@ section {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: cover;
+
 }
 
 .gallery img {
-    transform: scale(1.2);
+    user-select: none;
 }
 
-#lightbox {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 999;
+.gallery img:hover {
+    filter: brightness(112%);
 }
 
-#lightbox.active {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-#lightbox img {
-    max-width: 90%;
-    max-height: 80%;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-}
-
-#backToTop {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
-    background: #333;
-    border: none;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 0 15px;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease, background 0.3s ease;
-    z-index: 1000;
-}
-
-#backToTop.show {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-}
-
-#backToTop:hover {
-    background: #242424;
-}
-
-#backToTop .chevron {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    border-left: 2px solid white;
-    border-top: 2px solid white;
-    transform: rotate(45deg);
-    margin-top: 9px;
-}
-
-@media (max-width: 1000px) {
+@media (max-width: 1300px) {
     .gallery {
-        column-count: 4;
+        column-count: 1;
     }
+
 }
 
-@media (max-width: 600px) {
-
-
-    .logo0 {
-        padding: 1rem;
-    }
-
-    .bar {
-        display: flex;
-        align-items: center;
-        padding: 1rem;
-        font-size: small;
-    }
-
-    .bar a {
-        padding: 0.4rem;
-    }
+@media (max-width: 400px) {
 
     .gallery {
         column-count: 1;
-        margin-top: 3rem;
-        margin-bottom: 4rem;
-        padding: 0;
+        margin-top: 7rem;
     }
 
-    .hamburger {
-        display: flex;
 
-    }
-
-    .bar {
-        position: absolute;
-        top: 64px;
-        right: 0;
-        background: var(--ham-color);
-        display: none;
-        flex-direction: column;
-        padding: 1rem;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, .15);
-    }
-
-    .bar.show {
-        display: flex;
-    }
-
-    .bg1 img {
-        object-fit: cover;
-        width: 100%;
-        height: 1080px;
+    .link {
+        top: 63%;
     }
 
 }
