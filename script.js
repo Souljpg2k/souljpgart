@@ -10,9 +10,12 @@ const gallery = document.getElementById('gallery');
 galleryData.forEach(item => {
     const card = document.createElement('div');
     card.className = 'gallery-item';
-    card.innerHTML = `<img src="${item.img}" alt="Gallery Image" />`;
+    card.innerHTML = `
+    <img src="${item.img}" alt="${item.title}" />
+  `;
     gallery.appendChild(card);
 });
+
 
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -29,78 +32,16 @@ document.querySelectorAll('.gallery-item').forEach(item => {
 });
 
 
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.querySelector('.lightbox-img');
-const closeBtn = document.querySelector('.close');
-const prevBtn = document.querySelector('.prev');
-const nextBtn = document.querySelector('.next');
-
-let currentIndex = 0;
-
-function openLightbox(index) {
-    currentIndex = index;
-    lightboxImg.src = galleryData[currentIndex].img;
-    lightbox.classList.add('active');
-}
-
-function closeLightbox() {
-    lightbox.classList.remove('active');
-}
-
-function showNext() {
-    currentIndex = (currentIndex + 1) % galleryData.length;
-    lightboxImg.src = galleryData[currentIndex].img;
-}
-
-function showPrev() {
-    currentIndex = (currentIndex - 1 + galleryData.length) % galleryData.length;
-    lightboxImg.src = galleryData[currentIndex].img;
-}
-
-document.querySelectorAll('.gallery-item img').forEach((img, index) => {
-    img.addEventListener('click', () => openLightbox(index));
-});
-
-closeBtn.addEventListener('click', closeLightbox);
-lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-
-
-nextBtn.addEventListener('click', showNext);
-prevBtn.addEventListener('click', showPrev);
-
-document.addEventListener('keydown', e => {
-    if (!lightbox.classList.contains('active')) return;
-    if (e.key === 'ArrowRight') showNext();
-    if (e.key === 'ArrowLeft') showPrev();
-    if (e.key === 'Escape') closeLightbox();
-});
-
-
-
-const backToTopBtn = document.getElementById("backToTop");
-
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 200) {
-        backToTopBtn.classList.add("show");
-    } else {
-        backToTopBtn.classList.remove("show");
-    }
-});
-
-backToTopBtn.addEventListener("click", () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-});
-
+//menu
 const menuBtn = document.getElementById("menu-btn");
 const menu = document.getElementById("menu");
 const hamburger = document.querySelector('.hamburger');
+const mylink = document.querySelector(".link");
 
 
 menuBtn.addEventListener("click", () => {
     menu.classList.toggle("show");
+    mylink.classList.toggle("show");
     menuBtn.classList.toggle("open");
     hamburger.classList.toggle('active');
 });
@@ -110,12 +51,13 @@ const menuLinks = menu.querySelectorAll("a");
 menuLinks.forEach(link => {
     link.addEventListener("click", () => {
         menu.classList.remove("show");
+        mylink.classList.remove("show");
         menuBtn.classList.remove("open");
         hamburger.classList.remove('active');
     });
 });
 
-
+//ab
 document.addEventListener('DOMContentLoaded', () => {
     const sectionsToObserve = document.querySelectorAll('.ab');
 
@@ -142,8 +84,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+//hover
 document.addEventListener('DOMContentLoaded', () => {
-    const links = document.querySelectorAll('.bar0 a');
+    const links = document.querySelectorAll('.bar0 a,.link a');
     const audio = document.getElementById('hoverSound');
 
 
