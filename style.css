@@ -7,34 +7,23 @@ html {
 }
 
 :root {
-    --ab-color: #ffffff;
-    --link-color: #ffffff;
-    --footer-color: #373a3c;
-    --bgb-color: #000000ef;
-    --bg-color: #000000;
-    --home-color: rgb(255, 117, 117);
-    --gallery-color: rgb(255, 117, 117);
+    --bgb-color: #000000e8;
+    --home-color: rgb(101, 211, 255);
+    --gallery-color: rgb(101, 211, 255);
+    --bggallery-color: rgb(21, 21, 23);
+    --ham-color: #000000e8;
 }
 
-#cursor {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    transition: transform 0.1s ease;
-}
 
 .particle {
     position: fixed;
     width: 4px;
     height: 4px;
     border-radius: 50%;
-    background: rgb(255, 117, 117);
+    background: rgb(93, 244, 255);
     pointer-events: none;
     opacity: 1;
-    box-shadow: 0 0 9px rgb(255, 102, 0), 0 0 12px rgb(255, 72, 0);
+    box-shadow: 0 0 9px rgb(73, 182, 255), 0 0 12px rgb(46, 130, 255);
 }
 
 body {
@@ -45,8 +34,6 @@ body {
     overflow-y: scroll;
     overflow: hidden;
     scroll-behavior: smooth;
-    background-color: var(--bg-color);
-    cursor: url(img/Illustration3.png), auto;
 }
 
 section {
@@ -56,12 +43,12 @@ section {
 
 #home {
     height: auto;
-
 }
 
 #artwork {
     height: 100vh auto;
     overflow-y: auto;
+    background-color: var(--bggallery-color);
 }
 
 .co0 {
@@ -75,6 +62,7 @@ section {
     height: 4rem;
     width: 100%;
     backdrop-filter: blur(8px);
+    box-shadow: 0 0 15px;
 }
 
 .logo0 {
@@ -121,6 +109,27 @@ section {
     color: rgb(255, 255, 255);
 }
 
+.hamburger {
+    display: none;
+    margin: 1rem;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.hamburger span {
+    display: block;
+    height: 3px;
+    background: #000000;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
 .bio {
     display: grid;
     line-height: 3px;
@@ -140,6 +149,8 @@ section {
     letter-spacing: 12px;
     position: relative;
     left: 5px;
+    opacity: 0;
+    animation: fade 2s forwards;
 
 }
 
@@ -147,12 +158,25 @@ section {
     font-size: medium;
     line-height: 2;
     margin: 0;
+    opacity: 0;
+    animation: fade 3s forwards;
 
 }
 
-.ho1 {
+.bg1 {
     position: relative;
-    bottom: 4rem;
+}
+
+.bg1 img {
+    pointer-events: none;
+    user-select: none;
+    position: relative;
+    transform: scale(1.3);
+    top: 4rem;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    filter: brightness(50%);
 }
 
 .link {
@@ -191,52 +215,12 @@ section {
     filter: invert(70%);
 }
 
-.ho1 video {
-    pointer-events: none;
-    user-select: none;
-    width: 1920px;
-    height: 1000px;
-    object-fit: cover;
-    filter: brightness(50%);
-}
-
-.inner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    left: 90vh;
-
-}
-
-.bg {
-    position: relative;
-}
-
-.bg img {
-    position: relative;
-    right: 10rem;
-    width: 100%;
-}
-
-.g1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    top: 4px;
-}
-
-.g1 h1 {
-    color: var(--g1-color);
-}
-
 .gallery {
     column-count: 4;
     column-gap: 0;
     max-width: 100%;
     margin: 0 auto;
-    padding: 0;
+    padding: 10rem;
     margin-top: 4rem;
 }
 
@@ -249,6 +233,7 @@ section {
     filter: blur(4px);
     transform: translateY(5px);
     transition: opacity 1s ease-in-out, transform 2s ease-in-out;
+    will-change: opacity, transform, filter;
 }
 
 .gallery-item.show {
@@ -262,6 +247,10 @@ section {
     height: auto;
     display: block;
     object-fit: cover;
+}
+
+.gallery img {
+    transform: scale(1.2);
 }
 
 #lightbox {
@@ -305,6 +294,7 @@ section {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    box-shadow: 0 0 15px;
     opacity: 0;
     pointer-events: none;
     transform: translateY(20px);
@@ -319,7 +309,7 @@ section {
 }
 
 #backToTop:hover {
-    background: #555;
+    background: #242424;
 }
 
 #backToTop .chevron {
@@ -360,11 +350,33 @@ section {
         column-count: 1;
         margin-top: 3rem;
         margin-bottom: 4rem;
+        padding: 0;
     }
 
-    .bg {
+    .hamburger {
+        display: flex;
+
+    }
+
+    .bar {
+        position: absolute;
+        top: 64px;
+        right: 0;
+        background: var(--ham-color);
+        display: none;
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, .15);
+    }
+
+    .bar.show {
+        display: flex;
+    }
+
+    .bg1 img {
+        object-fit: cover;
         width: 100%;
-        height: 8rem;
+        height: 1080px;
     }
 
 }

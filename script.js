@@ -5,8 +5,6 @@ const galleryData = [
     { img: "img/1366.jpg" },
     { img: "img/2572568.jpg" },
     { img: "img/nurse.png" },
-    { img: "img/perfect blue.jpg" },
-
 ];
 
 const gallery = document.getElementById("gallery");
@@ -209,3 +207,11 @@ function createParticle(x, y) {
         particle.remove();
     }, 800);
 }
+
+const menuBtn = document.getElementById("menu-btn");
+const menu = document.getElementById("menu");
+
+menuBtn.addEventListener("click", () => {
+    menu.classList.toggle("show");
+    menuBtn.classList.toggle("open");
+});
