@@ -210,6 +210,7 @@ body {
     margin-top: 1rem;
     margin-left: 1rem;
     top: 5rem;
+    user-select: none;
     color: var(--ab-color);
 }
 
