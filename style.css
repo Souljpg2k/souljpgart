@@ -62,7 +62,6 @@ body {
     padding-left: 1rem;
     font-family: 'logo';
     font-weight: bolder;
-    color: var(--logo-color);
     user-select: none;
 }
 
