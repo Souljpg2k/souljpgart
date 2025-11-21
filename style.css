@@ -1,0 +1,441 @@
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+    user-select: none;
+    overflow: hidden;
+}
+
+:root {
+    --bar-color: rgb(236, 0, 0);
+    --blog-color: rgba(0, 0, 0, 0.74);
+    --bgsh-color: rgba(0, 0, 0, 0.74);
+    --bgg-color: rgba(0, 0, 0, 0.74);
+    --at-color: rgba(0, 0, 0, 0.74);
+    --tat-color: rgb(255, 255, 255);
+    --pblog-color: rgb(255, 255, 255);
+    --footer-color: #fff;
+    --bgf-color: rgba(0, 0, 0, 0.74);
+    --sh0-filter: invert(100%);
+    --time-color: #fff;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto Flex", sans-serif;
+    scroll-behavior: smooth;
+}
+
+section {
+    height: 90vh;
+}
+
+.co {
+    width: 100%;
+    height: 100vh;
+}
+
+.co2 {
+    position: relative;
+    z-index: 2;
+    margin: 1rem;
+    width: 100%;
+    height: 90vh;
+}
+
+.co3 {
+    display: flex;
+    gap: 1rem;
+}
+
+.col {
+    display: flex;
+    gap: 1rem;
+}
+
+.b1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 70px;
+    background-color: var(--bar-color);
+    box-shadow: rgb(0, 0, 0) 0px 0px 15px 0px;
+    z-index: 10;
+}
+
+.b2 {
+    padding: 2rem;
+}
+
+.b2 img {
+    width: 200px;
+    height: auto;
+    pointer-events: none;
+}
+
+.b3 {
+    padding: 2rem;
+    font-size: 20px;
+}
+
+.b3 img {
+    width: 50px;
+    transition: all 0.4s;
+}
+
+.b3 img:hover {
+    transform: scale(1.1);
+}
+
+.b4 {
+    display: grid;
+    width: fit-content;
+    gap: 1rem;
+}
+
+.b5 {
+    display: grid;
+    padding-right: 2rem;
+    padding-top: 9rem;
+    position: absolute;
+    width: fit-content;
+    height: auto;
+    right: 0;
+}
+
+.b5 iframe {
+    width: 340px;
+    height: 500px;
+    padding-top: 1rem;
+}
+
+.b6 {
+    display: grid;
+    position: absolute;
+    padding-right: 2rem;
+    top: 0;
+    right: 0;
+    width: fit-content;
+    height: 100px;
+    transition: all 0.5s;
+}
+
+.b6:hover {
+    height: 338px;
+}
+
+.b7 {
+    position: relative;
+    margin-top: 1rem;
+    width: 45px;
+    height: 45px;
+    border-radius: 4px;
+    transition: all 0.5s;
+    background-color: var(--blog-color);
+    z-index: 4;
+}
+
+.b7:focus {
+    width: 440px;
+    height: 400px;
+}
+
+.b7:focus~.b9 {
+    opacity: 0;
+}
+
+.b7 p {
+    color: var(--pblog-color);
+}
+
+.b8 {
+    display: flex;
+    position: absolute;
+    top: 21.9rem;
+    right: 2.4rem;
+}
+
+.b9 {
+    width: 45px;
+    height: 45px;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    background-color: var(--bgsh-color);
+}
+
+.b10 {
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+    position: absolute;
+    transform: scale(0);
+    transition: 0.35s;
+    width: 100%;
+    height: 70vh;
+    top: 0;
+    opacity: 0;
+    z-index: 5;
+}
+
+.ttb {
+    position: relative;
+    bottom: 10px;
+    right: 12px;
+}
+
+.ttb img {
+    padding: 0.1rem;
+    width: 35px;
+    height: auto;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.ttb img:hover {
+    transform: scale(1.1);
+}
+
+.blog {
+    width: 440px;
+    padding: 1rem;
+}
+
+.cob img {
+    cursor: pointer;
+    width: 400px;
+    height: auto;
+    transition: all 0.5s;
+}
+
+.cob img:hover {
+    transform: scale(1.02);
+}
+
+.cob {
+    position: absolute;
+    top: 3rem;
+    width: 500px;
+    height: 340px;
+    overflow-y: auto;
+}
+
+.inb {
+    padding: 0.5rem;
+    width: fit-content;
+    background-color: var(--at-color);
+    border-radius: 4px;
+}
+
+.inb p {
+    color: var(--tat-color);
+}
+
+.bg {
+    position: fixed;
+    pointer-events: none;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sh0 img {
+    width: 30px;
+    padding: 0.1rem;
+    filter: var(--sh0-filter);
+    transition: all 0.3s;
+}
+
+.sh0 img:hover {
+    transform: scale(1.1);
+}
+
+.opg {
+    position: absolute;
+    bottom: 5rem;
+}
+
+.opg img {
+    width: 100px;
+    height: auto;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.opg img:hover {
+    transform: scale(1.2);
+}
+
+.ga0 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 1100px;
+    height: fit-content;
+    padding: 1rem;
+    gap: 1rem;
+    background-color: rgba(0, 0, 0, 0.753);
+}
+
+.ga0 img {
+    width: 100%;
+    height: 130px;
+    transition: 0.4s;
+    cursor: pointer;
+    object-fit: cover;
+}
+
+.ga0 img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px;
+}
+
+#b {
+    opacity: 0;
+    transform: scale(0.2);
+    transition: all 0.35s ease;
+    pointer-events: none;
+}
+
+#b.active {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 12;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+#lightbox.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#lightbox img {
+    max-width: 60%;
+    max-height: 90%;
+    border-radius: 4px;
+    transition: transform 0.5s ease;
+    transform: scale(0.5);
+}
+
+#lightbox.active img {
+    transform: scale(1);
+}
+
+time {
+    color: var(--time-color);
+}
+
+footer {
+    padding: 1rem;
+    bottom: 1rem;
+    position: fixed;
+    z-index: 1;
+    color: var(--footer-color);
+    background-color: var(--bgf-color);
+}
+
+@media (max-width:600px) {
+    .b1 {
+        height: 60px;
+    }
+
+    .b3 img {
+        width: 40px;
+    }
+
+    .b5 {
+        display: none;
+    }
+
+    .b6 {
+        display: none;
+    }
+
+    .b7 {
+        width: 45px;
+        height: 45px;
+    }
+
+    .b7:focus {
+        width: 900px;
+    }
+
+    .b8 {
+        display: none;
+    }
+
+    .blog {
+        position: relative;
+        width: 340px;
+        height: 352px;
+        padding: 0.5rem;
+        padding-top: 0.8rem;
+        bottom: 0.5rem;
+        z-index: 4;
+
+    }
+
+    .cob {
+        padding-bottom: 3rem;
+    }
+
+    .cob img {
+        width: 300px;
+    }
+
+    .ttb {
+        top: 0;
+        right: 3px;
+    }
+
+    .ga0 {
+        display: grid;
+        position: absolute;
+        grid-template-columns: repeat(1, 1fr);
+        overflow-y: auto;
+        top: 18rem;
+        left: 0;
+        width: 300px;
+        height: 160px;
+    }
+
+    .opg {
+        bottom: 4rem;
+    }
+
+    .opg img {
+        width: 90px;
+    }
+
+    #lightbox img {
+        max-width: 90%;
+    }
+
+    footer {
+        display: none;
+    }
+
+}
