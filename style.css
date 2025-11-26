@@ -6,7 +6,7 @@
 }
 
 :root {
-    --bar-color: rgb(236, 0, 0);
+    --bar-color: rgb(53, 53, 53);
     --blog-color: rgba(0, 0, 0, 0.74);
     --bgsh-color: rgba(0, 0, 0, 0.74);
     --bgg-color: rgba(0, 0, 0, 0.74);
@@ -119,7 +119,7 @@ section {
     top: 0;
     right: 0;
     width: fit-content;
-    height: 100px;
+    height: 90px;
     transition: all 0.5s;
 }
 
@@ -149,13 +149,6 @@ section {
 
 .b7 p {
     color: var(--pblog-color);
-}
-
-.b8 {
-    display: flex;
-    position: absolute;
-    top: 21.9rem;
-    right: 2.4rem;
 }
 
 .b9 {

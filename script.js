@@ -1,22 +1,3 @@
-function updateTime() {
-    const now = new Date();
-    const thTime = now.toLocaleTimeString('th-TH', {
-        hour12: false,
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        timeZone: 'Asia/Bangkok'
-    });
-
-    const clockElement = document.getElementById('realtime');
-    clockElement.textContent = thTime;
-    clockElement.setAttribute('datetime', now.toISOString().slice(0, 19));
-}
-
-updateTime();
-setInterval(updateTime, 1000);
-
-
 const a = document.querySelector('.opg img');
 const b = document.getElementById('b');
 const ga0 = document.getElementById('ga0');
