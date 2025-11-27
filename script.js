@@ -1,19 +1,24 @@
-const a = document.querySelector('.opg img');
-const b = document.getElementById('b');
-const ga0 = document.getElementById('ga0');
+const galleryTriggerBtn = document.querySelector('.gallery-trigger img');
+const galleryOverlay = document.getElementById('gallery-overlay');
+const galleryGrid = document.getElementById('gallery-grid');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 
 
-a.addEventListener('click', (e) => {
-    b.classList.toggle('active');
+galleryTriggerBtn.addEventListener('click', (e) => {
+    galleryOverlay.classList.toggle('active');
     e.stopPropagation();
 });
 
-b.addEventListener('click', (e) => e.stopPropagation());
+
+galleryOverlay.addEventListener('click', (e) => {
+    if (e.target === galleryOverlay) {
+        galleryOverlay.classList.remove('active');
+    }
+});
 
 
-const images = ga0.querySelectorAll('img');
+const images = galleryGrid.querySelectorAll('img');
 images.forEach(img => {
     img.addEventListener('click', (e) => {
         lightboxImg.src = img.src;
@@ -23,8 +28,8 @@ images.forEach(img => {
     });
 });
 
-lightboxImg.addEventListener('click', (e) => e.stopPropagation());
 
+lightboxImg.addEventListener('click', (e) => e.stopPropagation());
 
 lightbox.addEventListener('click', () => {
     lightbox.classList.remove('active');
@@ -32,4 +37,3 @@ lightbox.addEventListener('click', () => {
         lightbox.style.display = 'none';
     }, 500);
 });
-
