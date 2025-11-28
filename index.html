@@ -20,102 +20,69 @@
 </head>
 
 <body>
-    <div class="app-container">
-        <header class="site-header">
-            <div class="logo-wrapper">
-                <a href="index.html">
-                    <img src="img/Logo.png" alt="SOULJPG">
-                </a>
+    <div class="main-overlay">
+        <div>
+            <div class="sidebar">
+                <div class="sidebar-icons">
+                    <a href="index.html">
+                        <img src="img/icon.jpg" alt="icon">
+                    </a>
+                </div>
             </div>
-            <div class="social-link-wrapper">
-                <a href="https://ko-fi.com/soul111">
-                    <img src="img/kofi_symbol.png" alt="Ko-fi">
-                </a>
-            </div>
-        </header>
+            <div class="content-container">
+                <div class="window-controls">
+                    <img id="minimizeBtn" src="img/minus.svg" alt="Minimize" role="button" tabindex="0"
+                        aria-pressed="false" aria-label="Minimize content">
+                    <img id="closeBtn" src="img/x.svg" alt="Close" role="button" tabindex="0"
+                        aria-label="Close content">
+                </div>
+                <div class="social-links" aria-label="social links">
+                    <a href="https://x.com/souljpg_">
+                        <img src="img/x-twitter.svg" alt="Twitter">
+                    </a>
+                    <a href="https://www.pixiv.net/en/users/73130815">
+                        <img src="img/pixiv.svg" alt="Pixiv">
+                    </a>
+                    <a href="https://www.artstation.com/ctrlsky123">
+                        <img src="img/artstation.svg" alt="ArtStation">
+                    </a>
+                </div>
+                <main class="profile-section">
+                    <div class="logo">
+                        <h1>SOULJPG</h1>
+                    </div>
 
-        <main class="main-content">
-            <div class="profile-section">
-                <div class="info-box">
-                    <p class="info-title">About</p>
-                    <p>Soul Illustrator & Concept art</p>
-                </div>
-                <div class="info-box">
-                    <p class="info-title">Tools</p>
-                    <p>Software used Clip studio Paint & Blender</p>
-                </div>
-            </div>
-            <div class="twitter-feed">
-                <blockquote class="twitter-tweet">
-                    <p lang="en" dir="ltr">Dream <a href="https://t.co/Tq8dlUmrQB">pic.twitter.com/Tq8dlUmrQB</a></p>
-                    &mdash; Soul (@souljpg_) <a
-                        href="https://twitter.com/souljpg_/status/1908477056503222721?ref_src=twsrc%5Etfw">April 5,
-                        2025</a>
-                </blockquote>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            </div>
-            <div class="content-row">
-                <div class="blog-toggle" tabindex="0">
-                    <div class="blog-container">
-                        <div class="blog-icon-wrapper">
-                            <img src="img/book.svg" alt="blog">
+                    <div class="text">
+                        <h1>WELCOME</h1>
+                        <p>to the website!</p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="title">
+                            <h2>About</h2>
                         </div>
-                        <div class="blog-content">
-                            <p class="blog-title">Blog</p>
-                            <p>Favorite brush</p>
-                            <p>It's a very good cloud brush.</p>
-                            <a href="https://assets.clip-studio.com/en-us/detail?id=1712701">
-                                <img src="img/brush.jpg" alt="Cloud brush">
-                            </a>
-                            <div>
-                                <p>Main brush</p>
-                                <a href="https://assets.clip-studio.com/en-us/detail?id=1842027">
-                                    <img src="img/brush2.jpg" alt="Main brush">
-                                </a>
-                            </div>
+                        <div class="card-content">
+                            <p>Soul illustrator & concept artist.</p>
+                            <p>Tools Clip Studio Paint & Blender</p>
+                            <p style="color: rgb(75, 189, 255);">The website's not done yet.</p>
                         </div>
                     </div>
-                </div>
-
-                <div class="shop-link-wrapper">
-                    <div class="shop-icon">
+                </main>
+                <div class="media-player">
+                    <div class="play-button">
+                        <img src="img/play.svg" alt="playimg">
+                        <span>play</span>
+                    </div>
+                    <div class="shop-button">
                         <a href="https://www.inprnt.com/profile/skyxsxx/">
-                            <img src="img/shop.png" alt="shop">
+                            <img src="img/shoppin.svg" alt="Shopping">
                         </a>
                     </div>
                 </div>
             </div>
-
-            <div class="gallery-wrapper">
-                <div class="gallery-trigger">
-                    <img src="img/icon.png" alt="Open Gallery">
-                </div>
-
-                <div class="gallery-overlay" id="gallery-overlay">
-                    <div class="gallery-grid" id="gallery-grid">
-                        <img src="img/dream542568.jpg" alt="Gallery Image 1">
-                        <img src="img/CS1.jpg" alt="Gallery Image 2">
-                        <img src="img/20102568.jpg" alt="Gallery Image 3">
-                        <img src="img/nurse.png" alt="Gallery Image 4">
-                        <img src="img/Snow.jpg" alt="Gallery Image 5">
-                        <img src="img/lapart.jpg" alt="Gallery Image 6">
-                        <img src="img/2572568.jpg" alt="Gallery Image 7">
-                        <img src="img/snoww.jpg" alt="Gallery Image 8">
-                        <img src="img/rock.jpg" alt="Gallery Image 9">
-                    </div>
-                </div>
-            </div>
-
-            <div id="lightbox">
-                <img id="lightbox-img" src="" alt="Lightbox Image">
-            </div>
-        </main>
-
-        <div class="background-image">
-            <img src="img/snoww.jpg" alt="Background">
         </div>
     </div>
-    <footer>&copy;2025 Souljpg</footer>
+    <div class="background-blur"></div>
     <script src="script.js"></script>
 </body>
 

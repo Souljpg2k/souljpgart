@@ -1,52 +1,56 @@
-// Run after DOM is ready and guard DOM selections to avoid runtime errors
-document.addEventListener('DOMContentLoaded', () => {
-    const galleryTriggerBtn = document.querySelector('.gallery-trigger img');
-    const galleryOverlay = document.getElementById('gallery-overlay');
-    const galleryGrid = document.getElementById('gallery-grid');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
+(function () {
+    const minBtn = document.getElementById('minimizeBtn');
+    const box = document.querySelector('.profile-section');
+    const socials = document.querySelector('.social-links');
+    const media = document.querySelector('.media-player');
+    if (!minBtn || !box || !socials || !media) return;
 
-    if (galleryTriggerBtn) {
-        galleryTriggerBtn.addEventListener('mouseover', () => {
-            galleryTriggerBtn.src = 'img/icon2.png';
-        });
-
-        galleryTriggerBtn.addEventListener('mouseout', () => {
-            galleryTriggerBtn.src = 'img/icon.png';
-        });
-
-        galleryTriggerBtn.addEventListener('click', (e) => {
-            if (galleryOverlay) galleryOverlay.classList.toggle('active');
-            e.stopPropagation();
-        });
+    function toggleMin() {
+        const collapsed = box.classList.toggle('collapsed');
+        socials.classList.toggle('collapsed', collapsed);
+        media.classList.toggle('collapsed', collapsed);
+        media.setAttribute('aria-hidden', collapsed ? 'true' : 'false');
+        minBtn.setAttribute('aria-pressed', collapsed ? 'true' : 'false');
+        minBtn.setAttribute('title', collapsed ? 'Restore' : 'Minimize');
     }
 
-    if (galleryOverlay) {
-        galleryOverlay.addEventListener('click', (e) => {
-            if (e.target === galleryOverlay) {
-                galleryOverlay.classList.remove('active');
-            }
-        });
+    minBtn.addEventListener('click', toggleMin);
+    minBtn.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleMin(); } });
+
+
+    const playBtn = document.querySelector('.play-button');
+    const con = document.querySelector('.content-container');
+    const playIcon = playBtn.querySelector('img');
+    const playText = playBtn.querySelector('span');
+
+    const images = ['img/owl.jpg',];
+    let currentIndex = 0;
+    let interval;
+    let isPlaying = false;
+
+
+    images.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+
+    function changeBackground() {
+        con.style.backgroundImage = `url(${images[currentIndex]})`;
+        currentIndex = (currentIndex + 1) % images.length;
     }
 
-    if (galleryGrid && lightbox && lightboxImg) {
-        const images = galleryGrid.querySelectorAll('img');
-        images.forEach(img => {
-            img.addEventListener('click', (e) => {
-                lightboxImg.src = img.src;
-                lightbox.style.display = 'flex';
-                setTimeout(() => lightbox.classList.add('active'), 10);
-                e.stopPropagation();
-            });
-        });
-
-        lightboxImg.addEventListener('click', (e) => e.stopPropagation());
-
-        lightbox.addEventListener('click', () => {
-            lightbox.classList.remove('active');
-            setTimeout(() => {
-                lightbox.style.display = 'none';
-            }, 500);
-        });
-    }
-});
+    playBtn.addEventListener('click', () => {
+        if (isPlaying) {
+            clearInterval(interval);
+            playIcon.src = 'img/play.svg';
+            playText.textContent = 'play';
+            isPlaying = false;
+        } else {
+            changeBackground();
+            interval = setInterval(changeBackground, 3000);
+            playIcon.src = 'img/pause.svg';
+            playText.textContent = 'pause';
+            isPlaying = true;
+        }
+    });
+})();
