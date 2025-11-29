@@ -24,11 +24,21 @@
         <div>
             <div class="sidebar">
                 <div class="sidebar-icons">
-                    <a href="index.html">
-                        <img src="img/icon.jpg" alt="icon">
-                    </a>
+                    <a href="index.html" class="sidebar-home" aria-label="Home"></a>
+                </div>
+                <div class="lang-switch" aria-label="Language switcher">
+                    <div class="lang-toggle" aria-expanded="false" aria-controls="lang-menu"
+                        aria-label="Open language menu">
+                        <img src="img/language-solid-full.svg" alt="language">
+                    </div>
+
+                    <div id="lang-menu" class="lang-menu" hidden>
+                        <button class="lang-btn" data-lang="th" aria-pressed="false">ไทย</button>
+                        <button class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+                    </div>
                 </div>
             </div>
+
             <div class="content-container">
                 <div class="window-controls">
                     <img id="minimizeBtn" src="img/minus.svg" alt="Minimize" role="button" tabindex="0"
@@ -36,6 +46,7 @@
                     <img id="closeBtn" src="img/x.svg" alt="Close" role="button" tabindex="0"
                         aria-label="Close content">
                 </div>
+
                 <div class="social-links" aria-label="social links">
                     <a href="https://x.com/souljpg_">
                         <img src="img/x-twitter.svg" alt="Twitter">
@@ -53,25 +64,25 @@
                     </div>
 
                     <div class="text">
-                        <h1>WELCOME</h1>
-                        <p>to the website!</p>
+                        <h1 data-i18n="welcome_title">WELCOME</h1>
+                        <p data-i18n="welcome_sub">to the website!</p>
                     </div>
 
                     <div class="info-card">
                         <div class="title">
-                            <h2>About</h2>
+                            <h2 data-i18n="about_title">About</h2>
                         </div>
                         <div class="card-content">
-                            <p>Soul illustrator & concept artist.</p>
-                            <p>Tools Clip Studio Paint & Blender</p>
-                            <p style="color: rgb(75, 189, 255);">The website's not done yet.</p>
+                            <p data-i18n="about_role">Soul illustrator & concept artist.</p>
+                            <p data-i18n="about_tools">Tools Clip Studio Paint & Blender.</p>
+                            <p class="ab" data-i18n="about_draw">I draw backgrounds & illustrations.</p>
                         </div>
                     </div>
                 </main>
                 <div class="media-player">
                     <div class="play-button">
                         <img src="img/play.svg" alt="playimg">
-                        <span>play</span>
+                        <span data-i18n="play">play</span>
                     </div>
                     <div class="shop-button">
                         <a href="https://www.inprnt.com/profile/skyxsxx/">
