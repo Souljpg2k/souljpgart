@@ -4,12 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Souljpgart">
-    <meta name="keywords" content="Souljpg">
+    <meta name="description" content="Souljpgart - Soul illustrator & concept artist portfolio">
+    <meta name="keywords" content="Souljpg, Art, Illustrator, Concept Art">
     <meta name="author" content="Souljpg">
     <meta property="og:title" content="Souljpg">
-    <meta property="og:description" content="Souljpgart">
-    <meta name="google-site-verification" content="G5D3vjJzrw9uOnD10CHrOEyDzOnkOgTMmYHXVZcrEiw" />
+    <meta property="og:description" content="Souljpgart Portfolio">
     <title>Souljpg</title>
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
@@ -22,78 +21,93 @@
 <body>
     <div class="main-overlay">
         <div>
-            <div class="sidebar">
-                <div class="sidebar-icons">
-                    <a href="index.html" class="sidebar-home" aria-label="Home"></a>
-                </div>
-                <div class="lang-switch" aria-label="Language switcher">
-                    <div class="lang-toggle" aria-expanded="false" aria-controls="lang-menu"
-                        aria-label="Open language menu">
-                        <img src="img/language-solid-full.svg" alt="language">
-                    </div>
-
-                    <div id="lang-menu" class="lang-menu" hidden>
-                        <button class="lang-btn" data-lang="th" aria-pressed="false">ไทย</button>
-                        <button class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
-                    </div>
-                </div>
-            </div>
+            <aside class="sidebar">
+                <nav class="sidebar-icons">
+                    <button id="workTrigger" aria-label="View Work"></button>
+                </nav>
+            </aside>
 
             <div class="content-container">
                 <div class="window-controls">
                     <img id="minimizeBtn" src="img/minus.svg" alt="Minimize" role="button" tabindex="0"
-                        aria-pressed="false" aria-label="Minimize content">
+                        aria-label="Minimize content">
                     <img id="closeBtn" src="img/x.svg" alt="Close" role="button" tabindex="0"
                         aria-label="Close content">
                 </div>
 
-                <div class="social-links" aria-label="social links">
-                    <a href="https://x.com/souljpg_">
+                <nav class="social-links" aria-label="Social links">
+                    <a href="https://x.com/souljpg_" target="_blank" rel="noopener noreferrer">
                         <img src="img/x-twitter.svg" alt="Twitter">
                     </a>
-                    <a href="https://www.pixiv.net/en/users/73130815">
+                    <a href="https://www.pixiv.net/en/users/73130815" target="_blank" rel="noopener noreferrer">
                         <img src="img/pixiv-brands-solid-full.svg" alt="Pixiv">
                     </a>
-                    <a href="https://www.artstation.com/ctrlsky123">
+                    <a href="https://www.artstation.com/ctrlsky123" target="_blank" rel="noopener noreferrer">
                         <img src="img/artstation.svg" alt="ArtStation">
                     </a>
-                </div>
+                </nav>
+
                 <main class="profile-section">
-                    <div class="logo">
-                        <h1>SOULJPG</h1>
-                    </div>
+                    <header class="profile-header">
+                        <div class="logo">
+                            <h1>SOULJPG</h1>
+                        </div>
+                        <div class="text">
+                            <h1>WELCOME</h1>
+                            <p>to the website!</p>
+                        </div>
+                    </header>
 
-                    <div class="text">
-                        <h1 data-i18n="welcome_title">WELCOME</h1>
-                        <p data-i18n="welcome_sub">to the website!</p>
-                    </div>
-
-                    <div class="info-card">
+                    <section class="info-card">
                         <div class="title">
-                            <h2 data-i18n="about_title">About</h2>
+                            <h2>About</h2>
                         </div>
                         <div class="card-content">
-                            <p data-i18n="about_role">Soul illustrator & concept artist.</p>
-                            <p data-i18n="about_tools">Tools Clip Studio Paint & Blender.</p>
-                            <p class="ab" data-i18n="about_draw">I draw backgrounds & illustrations.</p>
+                            <p>Soul illustrator</p>
                         </div>
-                    </div>
+                    </section>
                 </main>
+
                 <div class="media-player">
-                    <div class="play-button">
-                        <img src="img/play.svg" alt="playimg">
-                        <span data-i18n="play">play</span>
+                    <div class="play-button" role="button" tabindex="0" aria-label="Play background music">
+                        <img src="img/play.svg" alt="Play">
+                        <span>play</span>
                     </div>
-                    <div class="shop-button">
-                        <a href="https://www.inprnt.com/profile/skyxsxx/">
-                            <img src="img/shoppin.svg" alt="Shopping">
-                        </a>
-                    </div>
+                    <a href="https://souljpgart.onrender.com/" class="home-button" aria-label="Go home">
+                        <img src="img/reply-all-solid-full.svg" alt="Home">
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="background-blur"></div>
+    <div class="background"></div>
+
+    <div id="workModal" class="work-modal-overlay" aria-hidden="true">
+        <div class="work-modal" role="dialog" aria-modal="true" aria-labelledby="workTitle">
+            <div class="work-header">
+                <h2 id="workTitle">WORK</h2>
+                <div id="closeWorkBtn" class="close-work-btn" role="button" tabindex="0" aria-label="Close">
+                    <img src="img/x.svg" alt="Close">
+                </div>
+            </div>
+            <div class="work-body">
+                <section class="work-section">
+                    <h3>ILLUSTRATION</h3>
+                    <div class="work-grid">
+                        <img src="img/main.webp" alt="Illustration 1" class="work-item" tabindex="0">
+                        <img src="img/cs.webp" alt="Illustration 2" class="work-item" tabindex="0">
+                        <img src="img/R.webp" alt="Illustration 3" class="work-item" tabindex="0">
+                        <img src="img/D.webp" alt="Illustration 4" class="work-item" tabindex="0">
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div id="imageModal" class="modal" aria-hidden="true">
+        <img class="modal-content" id="img01" alt="Full size view">
+    </div>
+
     <script src="script.js"></script>
 </body>
 
