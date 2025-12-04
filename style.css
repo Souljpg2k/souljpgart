@@ -17,7 +17,7 @@
     --play-btn-bg: #242626;
     --play-btn-shadow: #181818;
     --scrollbar-color: #d0ff00;
-    --content-bg-image: url('img/demon.webp');
+    --content-bg-image: url('img/main.webp');
     --transition-fast: 0.2s ease;
     --transition-medium: 0.3s ease;
     --transition-slow: 0.4s ease;
@@ -50,6 +50,7 @@ body {
     inset: 0;
     width: 90%;
     height: 90vh;
+    transform: scale(0.9);
     margin: auto;
     z-index: 1;
     border-radius: 15px;
@@ -348,7 +349,6 @@ body {
     height: 470px;
     max-height: 90vh;
     background: #242626;
-    border-radius: 12px;
     display: flex;
     flex-direction: column;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
