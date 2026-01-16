@@ -36,7 +36,14 @@ section {
     scroll-snap-align: start;
     scroll-snap-stop: always;
 }
-
+.scroll-section {
+    min-height: 100vh; 
+    opacity: 0;
+    transition: all 0.8s ease-out;
+}
+.scroll-section.active {
+    opacity: 1;
+}
 header {
     position: fixed;
     display: flex;
@@ -89,12 +96,10 @@ header a {
 }
 
 #home {
-    animation: fade 0.8s ease-in-out forwards;
     background-image: var(--bg-home);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    opacity: 0;
     position: relative;
 }
 
@@ -123,7 +128,6 @@ header a {
 }
 
 #about {
-    animation: fade 0.8s ease-in-out forwards;
     background-image: var(--bg-about);
     background-repeat: no-repeat;
     background-position: center;
@@ -131,20 +135,25 @@ header a {
     user-select: none;
     font-size: 14px;
     padding: 4rem;
-    opacity: 0;
 }
 
 .about {
     padding-bottom: 2rem;
     width: fit-content;
     color: #fff;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease-out;
 }
 
 .about h2 {
     font-size: 22px;
     padding-bottom: 1rem;
 }
-
+.about.active {
+    opacity: 1;
+    transform: translateY(0);
+}
 .link {
     position: relative;
     padding-top: 1rem;
