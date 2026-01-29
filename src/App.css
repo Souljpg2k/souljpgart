@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@100..900&family=UnifrakturMaguntia&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  color: white;
+}
+
+:root {
+  --header-color: rgba(0, 0, 0, 0.73);
+  --bg-link: rgba(0, 0, 0, 0.429);
+  --bd-blur: blur(8px);
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.bg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.header {
+  position: fixed;
+  z-index: 1;
+  width: 50px;
+  height: 100vh;
+  background-color: var(--header-color);
+  backdrop-filter: var(--bd-blur);
+}
+
+.bar {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.bar h1 {
+  font-family: "UnifrakturMaguntia";
+}
+
+.link-container {
+  display: grid;
+  position: fixed;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  z-index: 2;
+  right: 0;
+  height: 100vh;
+}
+
+.link-container a {
+  padding: 3px;
+}
+
+.link {
+  display: grid;
+  border-radius: 8px 0 0 8px;
+  background-color: var(--bg-link);
+  backdrop-filter: var(--bd-blur);
+}
+
+.link img {
+  transition: filter 0.8s ease-out;
+}
+
+.link img:hover {
+  filter: drop-shadow(0 0 5px #fff) drop-shadow(0 0 10px #fff);
+  transition: filter 0.2s ease-in;
+}
+
+@media screen and (max-width:768px) {
+  .header {
+    width: 100vw;
+    height: 50px;
+  }
+
+  .bar {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    align-items: center;
+    padding: 0 1rem;
+  }
+
+  .link {
+    transform: scale(1.1);
+  }
+}
