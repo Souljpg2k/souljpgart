@@ -1,0 +1,42 @@
+.about-window {
+    position: absolute;
+    top: 43%;
+    left: 10rem;
+    width: 400px;
+    overflow: hidden;
+    box-shadow: var(--box-shadows);
+    background-color: var(--bg-windows);
+    z-index: 1;
+}
+
+.about-window:active {
+    z-index: 999;
+}
+
+.about-content {
+    padding: 25px;
+}
+
+.about-text h2 {
+    position: relative;
+    color: var(--white-color);
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    width: fit-content;
+    margin-bottom: 1rem;
+}
+
+.about-text h2::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    background-color: rgb(255, 255, 68);
+}
+
+.about-text p {
+    font-size: 14px;
+    color: var(--white-color);
+}

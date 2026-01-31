@@ -1,57 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@100..900&family=UnifrakturMaguntia&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  user-select: none;
-  color: white;
-}
-
-:root {
-  --header-color: rgba(0, 0, 0, 0.73);
-  --bg-link: rgba(0, 0, 0, 0.429);
-  --bd-blur: blur(8px);
-}
-
 .App {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
 }
 
-.bg-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-}
-
-.bg-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  pointer-events: none;
-}
-
-.header {
+.App-header {
+  display: flex;
+  align-items: center;
   position: fixed;
   z-index: 2;
-  width: 50px;
-  height: 100vh;
+  width: 100vw;
+  height: 60px;
+  box-shadow: var(--box-shadows);
   background-color: var(--header-color);
   backdrop-filter: var(--bd-blur);
 }
 
-.bar {
+.App-logo {
   display: flex;
-  justify-content: center;
-  padding: 1rem;
+  padding-left: 1rem;
+  color: var(--white-color);
 }
 
-.bar h1 {
-  font-family: "UnifrakturMaguntia";
+.App-logo h1 {
+  font-size: 20px;
 }
 
 .link-container {
@@ -81,144 +53,21 @@
 }
 
 .link img:hover {
-  filter: drop-shadow(0 0 5px #fff) drop-shadow(0 0 10px #fff);
+  filter: var(--drop-shadows);
   transition: filter 0.2s ease-in;
 }
 
-.gallery-window {
-  position: absolute;
-  z-index: 1;
-  top: 30vh;
-  right: 5rem;
-  width: 400px;
-  overflow: hidden;
-  backdrop-filter: var(--bd-blur);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: transparent;
+.bg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
 }
 
-.window-header {
-  display: flex;
-  align-items: center;
-  padding: 0 15px;
-  height: 45px;
-  font-weight: 500;
-  cursor: grab;
-  user-select: none;
-  background: var(--header-color);
-}
-
-.window-header:active {
-  cursor: grabbing;
-}
-
-.window-title {
-  font-size: 0.75rem;
-  color: #ffffff;
-}
-
-.window-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  height: 200px;
-}
-
-.image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+.bg-image {
   width: 100%;
   height: 100%;
-  overflow: hidden;
-}
-
-.display-img {
-  position: absolute;
-  pointer-events: none;
   object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
-
-.nav-btn {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  font-size: 1.5rem;
-  z-index: 5;
-  border: none;
-  cursor: pointer;
-  color: white;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.nav-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.left {
-  left: 10px;
-}
-
-.right {
-  right: 10px;
-}
-
-@media screen and (max-width: 768px) {
-  .header {
-    width: 100vw;
-    height: 50px;
-    bottom: auto;
-    top: 0;
-  }
-
-  .bar {
-    height: 100%;
-    align-items: center;
-    padding: 0 1.5rem;
-    justify-content: flex-start;
-  }
-
-  .gallery-window {
-    width: 100%;
-    right: auto;
-    position: fixed;
-  }
-
-  .window-content {
-    height: 200px;
-  }
-
-  .link-container {
-    height: auto;
-    bottom: 2rem;
-    right: 0;
-    top: auto;
-  }
-
-  .link {
-    display: flex;
-    padding: 10px 20px;
-    border-radius: 20px 0 0 20px;
-  }
-
-  .link a {
-    padding: 0 10px;
-  }
-
-  .link img {
-    width: 30px;
-    height: 30px;
-  }
-
-  .nav-btn {
-    width: 50px;
-    height: 50px;
-    background: transparent;
-  }
+  pointer-events: none;
 }
