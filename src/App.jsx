@@ -1,16 +1,16 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
 
-import background from "./assets/image/bg2.webp";
+import background from "./assets/image/bhp.webp";
 import { artstation, pixiv, x } from "./assets/icons";
 
 import Gallery from "./Gallery.jsx";
 import About from "./About.jsx";
 
 
-import "./App.css";
-import "./About.css";
-import "./Gallery.css";
+import "./css/App.css";
+import "./css/About.css";
+import "./css/Gallery.css";
 
 function App() {
   const constraintsRef = useRef(null);
