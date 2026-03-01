@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloock&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Google Sans", sans-serif;
+  --font-logo: "Gloock", serif;
+  --bg-primary: rgba(28, 28, 30);
+  --text-primary: rgba(242, 242, 247);
+}
