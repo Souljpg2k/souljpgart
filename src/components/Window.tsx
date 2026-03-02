@@ -35,7 +35,7 @@ function Windows({ show, setShow, constraintsRef }: WindowsProps) {
                     }}
                     dragTransition={{
                         bounceStiffness: 100,
-                        bounceDamping: 10
+                        bounceDamping: 20
                     }}
                     transition={{ duration: 0.3 }}
                 >

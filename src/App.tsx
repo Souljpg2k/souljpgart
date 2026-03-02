@@ -1,8 +1,5 @@
 import { useState, useRef } from 'react';
-import Nav from './components/Nav';
-import Header from './components/Header';
-import Window from './components/Window';
-import Containers from './components/Containers';
+import { Nav, Header, Window, Containers } from './components';
 import Bg from './components/Background';
 
 function App() {
