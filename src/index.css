@@ -4,6 +4,6 @@
 @theme {
   --font-display: "Google Sans", sans-serif;
   --font-logo: "Gloock", serif;
-  --bg-primary: rgba(28, 28, 30);
+  --bg-primary: rgb(28, 28, 30);
   --text-primary: rgba(242, 242, 247);
 }

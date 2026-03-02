@@ -28,7 +28,7 @@ function Nav() {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <img src={Social.icon} alt={Social.alt} />
+                    <img className=" w-7" src={Social.icon} alt={Social.alt} />
                 </motion.a>
             ))}
         </nav>
