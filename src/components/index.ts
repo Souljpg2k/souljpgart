@@ -1,6 +1,4 @@
-import Nav from './Nav';
-import Header from './Header';
-import Window from './Window';
-import Containers from './Containers';
-
-export { Nav, Header, Window, Containers };
+export { default as Nav } from './Nav';
+export { default as Header } from './Header';
+export { default as Window } from './Window';
+export { default as Containers } from './Containers';
