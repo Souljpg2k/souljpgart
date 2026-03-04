@@ -1,0 +1,19 @@
+import { motion } from "motion/react";
+import { bg } from "../assets"
+import { forwardRef } from "react";
+
+const Bg = forwardRef<HTMLDivElement>(function Bg(_, ref) {
+    return (
+        <div ref={ref} className="w-full h-full relative rounded-[20px] overflow-hidden">
+            <motion.img
+                className="w-full h-full object-cover pointer-events-none"
+                initial={{ scale: 1.1, filter: "blur(8px)" }}
+                animate={{ scale: 1, filter: "blur(0)" }}
+                transition={{ duration: 2 }}
+                src={bg} alt="background"
+            />
+        </div>
+    );
+});
+
+export default Bg;
