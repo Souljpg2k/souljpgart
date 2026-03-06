@@ -1,6 +1,5 @@
-import { useState, useRef } from 'react';
-import { Nav, Header, Window, Containers } from './components';
-import Bg from './components/Background';
+import { useState, useRef } from 'react'
+import { SocialNav, Header, Window, Containers, Bg } from './components'
 
 function App() {
   const [isVisible, setIsVisible] = useState(false);
@@ -11,12 +10,9 @@ function App() {
       <Header onToggle={onToggle} />
 
       <Containers>
-        <Nav />
+        <SocialNav />
         <Bg ref={constraintsRef} />
-        <Window isVisible={isVisible}
-          onToggle={onToggle}
-          constraintsRef={constraintsRef}
-        />
+        <Window isVisible={isVisible} onToggle={onToggle} constraintsRef={constraintsRef} />
       </Containers>
     </>
   )

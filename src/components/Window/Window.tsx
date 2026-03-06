@@ -1,5 +1,6 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { close, info, bg } from "../assets";
+import { motion, AnimatePresence } from "framer-motion"
+import { dragProps } from "./drag"
+import { close, info, bg } from "../../assets"
 
 interface WindowsProps {
     isVisible: boolean;
@@ -13,18 +14,8 @@ function Windows({ isVisible, onToggle, constraintsRef }: WindowsProps) {
             {isVisible && (
                 <motion.div
                     className="w-400px h-500px absolute bg-(--bg-primary) p-4 right-0 top-0 cursor-move z-10"
-                    drag
-                    dragElastic={0}
+                    {...dragProps}
                     dragConstraints={constraintsRef}
-                    dragTransition={{ bounceStiffness: 100, bounceDamping: 20 }}
-                    whileDrag={{ boxShadow: "0px 20px 40px rgba(0,0,0,0.6)", scale: 1.01 }}
-                    initial={{ opacity: 0, scale: 0.97, filter: "blur(8px)" }}
-                    animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                    exit={{ opacity: 0, x: 6, scale: 0.97, filter: "blur(8px)" }}
-                    transition={{
-                        duration: 0.4,
-                        ease: [0.25, 0.1, 0.25, 1],
-                    }}
                 >
                     <div className="flex items-center justify-between gap-1">
                         <div className="flex items-center gap-1 pointer-events-none">

@@ -1,6 +1,6 @@
-import { motion } from "motion/react";
+import { motion } from "motion/react"
 import { bg } from "../assets"
-import { forwardRef } from "react";
+import { forwardRef } from "react"
 
 const Bg = forwardRef<HTMLDivElement>(function Bg(_, ref) {
     return (

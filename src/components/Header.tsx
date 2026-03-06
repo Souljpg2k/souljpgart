@@ -1,5 +1,5 @@
-import { bar } from "../assets";
-import { motion } from "motion/react";
+import { bar } from "../assets"
+import { motion } from "motion/react"
 
 interface HeaderProps {
     onToggle: () => void;
