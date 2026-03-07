@@ -1,8 +1,11 @@
 import { motion } from "motion/react"
 import { bg } from "../assets"
-import { forwardRef } from "react"
 
-const Bg = forwardRef<HTMLDivElement>(function Bg(_, ref) {
+interface BgProps {
+    ref?: React.Ref<HTMLDivElement>
+}
+
+function Background({ ref }: BgProps) {
     return (
         <div ref={ref} className="w-full h-full relative rounded-[20px] overflow-hidden">
             <motion.img
@@ -13,7 +16,7 @@ const Bg = forwardRef<HTMLDivElement>(function Bg(_, ref) {
                 src={bg} alt="background"
             />
         </div>
-    );
-});
+    )
+}
 
-export default Bg;
+export default Background

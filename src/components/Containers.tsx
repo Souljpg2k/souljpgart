@@ -2,7 +2,7 @@ import { motion } from "motion/react"
 import type { ReactNode } from "react"
 
 interface ContainersProps {
-    children: ReactNode;
+    children: ReactNode
 }
 
 function Containers({ children }: ContainersProps) {
@@ -16,7 +16,7 @@ function Containers({ children }: ContainersProps) {
         >
             {children}
         </motion.div>
-    );
-};
+    )
+}
 
-export default Containers;
+export default Containers

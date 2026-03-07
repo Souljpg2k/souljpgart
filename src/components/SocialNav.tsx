@@ -3,10 +3,10 @@ import { motion } from "motion/react"
 import { externalProps } from "./External"
 
 interface SocialLink {
-    id: number;
-    href: string;
-    icon: string;
-    alt: string;
+    id: number
+    href: string
+    icon: string
+    alt: string
 }
 
 const SOCIAL_DATA: SocialLink[] = [
@@ -35,7 +35,7 @@ function SocialNav() {
                 </motion.a>
             ))}
         </motion.nav>
-    );
+    )
 }
 
-export default SocialNav;
+export default SocialNav

@@ -3,9 +3,9 @@ import { dragProps } from "./drag"
 import { close, info, bg } from "../../assets"
 
 interface WindowsProps {
-    isVisible: boolean;
-    onToggle: () => void;
-    constraintsRef: React.RefObject<HTMLDivElement | null>;
+    isVisible: boolean
+    onToggle: () => void
+    constraintsRef: React.RefObject<HTMLDivElement | null>
 }
 
 function Windows({ isVisible, onToggle, constraintsRef }: WindowsProps) {
@@ -40,7 +40,7 @@ function Windows({ isVisible, onToggle, constraintsRef }: WindowsProps) {
                 </motion.div>
             )}
         </AnimatePresence>
-    );
+    )
 }
 
-export default Windows;
+export default Windows

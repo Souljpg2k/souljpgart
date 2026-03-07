@@ -15,4 +15,4 @@ export const dragProps: Readonly<Pick<HTMLMotionProps<"div">,
         duration: 0.4,
         ease: [0.25, 0.1, 0.25, 1],
     },
-};
+}

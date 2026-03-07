@@ -2,7 +2,7 @@ import { bar } from "../assets"
 import { motion } from "motion/react"
 
 interface HeaderProps {
-    onToggle: () => void;
+    onToggle: () => void
 }
 
 function Header({ onToggle }: HeaderProps) {
@@ -19,7 +19,7 @@ function Header({ onToggle }: HeaderProps) {
                 alt="Toggle menu"
             />
         </header>
-    );
+    )
 }
 
-export default Header;
+export default Header
