@@ -1,6 +1,5 @@
-import { motion, AnimatePresence } from "framer-motion"
-import { dragProps } from "./drag"
-import { close, info, bg } from "../../assets"
+import { motion, AnimatePresence } from 'framer-motion'
+import { close, info, bg } from '../../assets'
 
 interface WindowsProps {
     isVisible: boolean
@@ -13,28 +12,38 @@ function Windows({ isVisible, onToggle, constraintsRef }: WindowsProps) {
         <AnimatePresence>
             {isVisible && (
                 <motion.div
-                    className="w-400px h-500px absolute bg-(--bg-primary) p-4 right-0 top-0 cursor-move z-10"
-                    {...dragProps}
+                    className='w-400px h-500px absolute bg-(--bg-primary) p-4 right-0 top-0 cursor-move z-10'
+                    drag
+                    dragElastic={0}
                     dragConstraints={constraintsRef}
+                    dragTransition={{ bounceStiffness: 100, bounceDamping: 20 }}
+                    whileDrag={{ boxShadow: '0px 10px 40px rgba(0,0,0,0.6)', scale: 1.01 }}
+                    initial={{ opacity: 0, scale: 0.97, filter: 'blur(8px)' }}
+                    animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+                    exit={{ opacity: 0, x: 6, scale: 0.97, filter: 'blur(8px)' }}
+                    transition={{
+                        duration: 0.4,
+                        ease: [0.25, 0.1, 0.25, 1],
+                    }}
                 >
-                    <div className="flex items-center justify-between gap-1">
-                        <div className="flex items-center gap-1 pointer-events-none">
-                            <img src={info} alt="info" />
-                            <h1 className="font-medium">Soul</h1>
+                    <div className='flex items-center justify-between gap-1'>
+                        <div className='flex items-center gap-1 pointer-events-none'>
+                            <img src={info} alt='info' />
+                            <h1 className='font-medium'>Soul</h1>
                         </div>
                         <motion.img
-                            className="cursor-pointer"
+                            className='cursor-pointer'
                             whileHover={{ opacity: 0.7, scale: 1.1, rotate: 90 }}
                             whileTap={{ scale: 0.75 }}
-                            transition={{ duration: 0.2, ease: "easeInOut" }}
+                            transition={{ duration: 0.2, ease: 'easeInOut' }}
                             src={close}
-                            alt="Close window"
+                            alt='Close window'
                             onClick={onToggle}
                         />
                     </div>
 
-                    <div className="pt-2 flex flex-col gap-2">
-                        <img className="w-100 rounded-[7px] pointer-events-none" src={bg} alt="background" />
+                    <div className='pt-2 flex flex-col gap-2'>
+                        <img className='w-100 rounded-[7px] pointer-events-none' src={bg} alt='background' />
                         <p>Soul Illustrator</p>
                     </div>
                 </motion.div>

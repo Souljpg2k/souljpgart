@@ -1,5 +1,5 @@
-import { motion } from "motion/react"
-import { bg } from "../assets"
+import { motion } from 'motion/react'
+import { bg } from '../assets'
 
 interface BackgroundProps {
     ref?: React.Ref<HTMLDivElement>
@@ -7,13 +7,13 @@ interface BackgroundProps {
 
 function Background({ ref }: BackgroundProps) {
     return (
-        <div ref={ref} className="w-full h-full relative rounded-[20px] overflow-hidden">
+        <div ref={ref} className='w-full h-full relative rounded-[20px] overflow-hidden'>
             <motion.img
-                className="w-full h-full object-cover pointer-events-none"
-                initial={{ scale: 1.1, filter: "blur(8px)" }}
-                animate={{ scale: 1, filter: "blur(0)" }}
+                className='w-full h-full object-cover pointer-events-none'
+                initial={{ scale: 1.1, filter: 'blur(8px)' }}
+                animate={{ scale: 1, filter: 'blur(0)' }}
                 transition={{ duration: 2 }}
-                src={bg} alt="background"
+                src={bg} alt='background'
             />
         </div>
     )
