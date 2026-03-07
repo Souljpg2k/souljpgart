@@ -1,11 +1,11 @@
 import { motion } from "motion/react"
 import { bg } from "../assets"
 
-interface BgProps {
+interface BackgroundProps {
     ref?: React.Ref<HTMLDivElement>
 }
 
-function Background({ ref }: BgProps) {
+function Background({ ref }: BackgroundProps) {
     return (
         <div ref={ref} className="w-full h-full relative rounded-[20px] overflow-hidden">
             <motion.img
