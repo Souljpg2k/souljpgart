@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { close, info, bg } from '../../assets'
+import { close, info, im1 } from '../../assets'
 
 interface WindowsProps {
     isVisible: boolean
@@ -17,7 +17,6 @@ function Windows({ isVisible, onToggle, constraintsRef }: WindowsProps) {
                     dragElastic={0}
                     dragConstraints={constraintsRef}
                     dragTransition={{ bounceStiffness: 100, bounceDamping: 20 }}
-                    whileDrag={{ boxShadow: '0px 10px 40px rgba(0,0,0,0.6)', scale: 1.01 }}
                     initial={{ opacity: 0, scale: 0.97, filter: 'blur(8px)' }}
                     animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
                     exit={{ opacity: 0, x: 6, scale: 0.97, filter: 'blur(8px)' }}
@@ -29,8 +28,9 @@ function Windows({ isVisible, onToggle, constraintsRef }: WindowsProps) {
                     <div className='flex items-center justify-between gap-1'>
                         <div className='flex items-center gap-1 pointer-events-none'>
                             <img src={info} alt='info' />
-                            <h1 className='font-medium'>Soul</h1>
+                            <h1>Info</h1>
                         </div>
+
                         <motion.img
                             className='cursor-pointer'
                             whileHover={{ opacity: 0.7, scale: 1.1, rotate: 90 }}
@@ -43,8 +43,8 @@ function Windows({ isVisible, onToggle, constraintsRef }: WindowsProps) {
                     </div>
 
                     <div className='pt-2 flex flex-col gap-2'>
-                        <img className='w-100 rounded-[7px] pointer-events-none' src={bg} alt='background' />
-                        <p>Soul Illustrator</p>
+                        <img className='w-100 rounded-[7px] pointer-events-none' src={im1} alt='background' />
+                        <p className='pt-2'>Soul Illustrator</p>
                     </div>
                 </motion.div>
             )}

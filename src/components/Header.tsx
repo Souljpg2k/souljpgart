@@ -8,7 +8,7 @@ interface HeaderProps {
 function Header({ onToggle }: HeaderProps) {
     return (
         <header className='flex justify-between items-center w-screen h-50px relative px-8 pt-4'>
-            <h1 className='text-xl font-medium font-logo'>SOULJPG</h1>
+            <h1 className='font-bold text-xl'>SOULJPG</h1>
             <motion.img
                 className='w-7 h-7 object-cover cursor-pointer'
                 onClick={onToggle}

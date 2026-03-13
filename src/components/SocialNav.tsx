@@ -10,10 +10,10 @@ interface SocialLink {
 }
 
 const SOCIAL_DATA: SocialLink[] = [
-    { id: 0o1, href: 'https://www.artstation.com/ctrlsky123', icon: artstation, alt: 'Artstation' },
-    { id: 0o2, href: 'https://www.pixiv.net/en/users/73130815', icon: pixiv, alt: 'Pixiv' },
-    { id: 0o3, href: 'https://x.com/souljpg_', icon: xtwitter, alt: 'X-Twitter' },
-    { id: 0o4, href: 'https://ko-fi.com/soul111', icon: kofi, alt: 'Ko-Fi' },
+    { id: 1, href: 'https://www.artstation.com/ctrlsky123', icon: artstation, alt: 'Artstation' },
+    { id: 2, href: 'https://www.pixiv.net/en/users/73130815', icon: pixiv, alt: 'Pixiv' },
+    { id: 3, href: 'https://x.com/souljpg_', icon: xtwitter, alt: 'X-Twitter' },
+    { id: 4, href: 'https://ko-fi.com/soul111', icon: kofi, alt: 'Ko-Fi' },
 ];
 
 function SocialNav() {
