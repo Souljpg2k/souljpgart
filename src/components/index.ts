@@ -1,5 +1,5 @@
-export { default as SocialNav } from './SocialNav'
-export { default as Header } from './Header'
-export { default as Window } from './Window/Window'
 export { default as Containers } from './Containers'
 export { default as Background } from './Background'
+export { default as Header } from './Header'
+export { default as SocialNav } from './SocialNav'
+export { default as Window } from './Window/Window'

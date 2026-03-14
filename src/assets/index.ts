@@ -9,4 +9,4 @@ export { default as info } from './icons/circle-info-solid-full.svg'
 
 //image
 export { default as bg } from './image/background.webp'
-export { default as im1 } from './image/snow.jpg'
+export { default as im1 } from './image/bg2.webp'

@@ -5,10 +5,10 @@ function App() {
   const [isVisible, setIsVisible] = useState(false)
   const constraintsRef = useRef<HTMLDivElement>(null)
   const onToggle = () => setIsVisible(prev => !prev)
+
   return (
     <>
       <Header onToggle={onToggle} />
-
       <Containers>
         <SocialNav />
         <Background ref={constraintsRef} />

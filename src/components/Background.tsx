@@ -13,7 +13,8 @@ function Background({ ref }: BackgroundProps) {
                 initial={{ opacity: 0, scale: 1.1, filter: 'blur(8px)' }}
                 animate={{ opacity: 1, scale: 1, filter: 'blur(0)' }}
                 transition={{ duration: 2 }}
-                src={bg} alt='background'
+                src={bg}
+                alt='background'
             />
         </div>
     )
