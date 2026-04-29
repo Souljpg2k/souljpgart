@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap');
+
+@theme {
+  --color-bg-color: #1d1d1d;
+  --color-fg-color: #ffffff;
+  --font-display: "Google Sans Flex", sans-serif;
+}
