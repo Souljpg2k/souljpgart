@@ -14,8 +14,8 @@ const Data: link[] = [
 
 function Bar() {
     return (
-        <div className='bg-c-black subpixel-antialiased top-0 w-screen h-12 font-display text-sm font-medium flex justify-between items-center pl-10 pr-10'>
-            <h1 className='text-c-white'>SOULJPG.art</h1>
+        <div className='bg-c-black subpixel-antialiased top-0 w-screen h-11 font-display text-sm font-medium flex justify-between items-center pl-10 pr-10'>
+            <h1 className='text-c-white'>SOULJPG</h1>
             <div className='text-c-white space-x-5'>
                 {Data.map((ls) => (
                     <motion.a
