@@ -1,1 +1,1 @@
-export { default as img1 } from './amiya0.webp'
+export { default as img1 } from './amiya.webp'
