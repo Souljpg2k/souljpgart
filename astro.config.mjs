@@ -7,6 +7,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://Souljpg2k.github.io',
+  base: '/souljpgart',
   integrations: [vue()],
 
   vite: {
