@@ -4,7 +4,7 @@ import { ref } from 'vue'
 
 const links = [
     { id: 1, n: 'ARTSTATION', url: 'https://www.artstation.com/souljpg' },
-    { id: 2, n: 'INSTAGRAM',  url: 'https://www.instagram.com/souljpg01/' },
+    { id: 2, n: 'INSTAGRAM',  url: 'https://www.instagram.com/souljpgart/' },
     { id: 3, n: 'X.COM',      url: 'https://x.com/souljpg_' },
     { id: 4, n: 'PIXIV',      url: 'https://www.pixiv.net/en/users/73130815' },
     { id: 5, n: 'KO-FI',      url: 'https://ko-fi.com/soul111' }
