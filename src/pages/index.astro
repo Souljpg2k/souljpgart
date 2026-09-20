@@ -1,10 +1,12 @@
 ---
+import About from "../components/About.vue";
 import Background from "../components/Background.vue";
 import Bar from "../components/Bar.vue";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
+    <About client:load />
     <Bar client:load />
     <Background client:load />
 </Layout>
