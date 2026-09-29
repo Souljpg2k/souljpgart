@@ -1,50 +1,71 @@
 import { motion } from 'motion/react'
-import i from './assets/bg.webp'
+import { A, I, X, K, G, Bg } from './assets'
 
 interface Link {
     id: number
-    n: string
+    icon: string
+    alt: string
     url: string
 }
 
 function App() {
     const l: Link[] = [
-        { id: 1, n: 'artstation', url: 'https://www.artstation.com/souljpg' },
-        { id: 2, n: 'instagram', url: 'https://www.instagram.com/souljpgart/' },
-        { id: 3, n: 'x', url: 'https://x.com/souljpg_' },
-        { id: 4, n: 'ko-fi', url: 'https://ko-fi.com/soul111' }
+        { id: 1, icon: A, alt: 'Artstation', url: 'https://www.artstation.com/souljpg' },
+        { id: 2, icon: I, alt: 'Instagram', url: 'https://www.instagram.com/souljpgart/' },
+        { id: 3, icon: X, alt: 'Twitter', url: 'https://x.com/souljpg_' },
+        { id: 4, icon: K, alt: 'Ko-fi', url: 'https://ko-fi.com/soul111' },
+        { id: 5, icon: G, alt: 'Github', url: 'https://github.com/Souljpg2k' }
     ]
 
     return (
         <>
-            <header className='bg-black/80 text-white backdrop-blur-sm w-screen h-12 fixed flex items-center justify-between pr-4 pl-4 z-40'>
-                <h1 className='font-logo text-2xl pb-1'>souljpgart</h1>
-                <div className='font-display space-x-3'>
+            <main className='relative w-screen h-screen bg-black text-white font-display select-none'>
+                <div className='inset-0 grid items-center justify-center absolute z-20'>
+                    <section className='text-center'>
+                        <h1 className='text-5xl'>souljpgart</h1>
+                        <p>illustrator</p>
+                    </section>
+                </div>
+
+                <section className='absolute bottom-0 bg-black/10 rounded-2xl border border-white/10 backdrop-blur-sm select-text mx-11 my-20 p-2.5 z-30'>
+                    <u className='font-bold'>hi, i'm soul</u>
+                    <p>i code and illustrator</p>
+                    <p>tools: clip studio paint, krita, wacom</p>
+                </section>
+
+                <div className='inset-0 overflow-hidden fixed'>
+                    <motion.img
+                        className='w-full h-full object-cover pointer-events-none'
+                        initial={{ opacity: 0.1, scale: 1.5 }}
+                        animate={{ opacity: 0.3, scale: 1 }}
+                        transition={{ duration: 2, ease: 'anticipate' }}
+                        src={Bg}
+                        alt='background'
+                    />
+                </div>
+            </main>
+
+            <footer className='bg-black/20 text-white backdrop-blur-sm w-screen h-12 fixed flex items-center justify-between select-none px-11 bottom-0 z-50'>
+                <p className='font-display'>&copy;souljpgart</p>
+                <div className='flex space-x-3'>
                     {l.map((link) => (
                         <motion.a
                             key={link.id}
                             href={link.url}
                             target='_blank'
                             rel='noopener noreferrer'
-                            whileHover={{ scale: 1.05, opacity: 0.5 }}
-                            whileTap={{ scale: 0.95 }}
                         >
-                            {link.n}
+                            <motion.img
+                                className='w-6'
+                                src={link.icon}
+                                alt={link.alt}
+                                whileHover={{ scale: 1.05, opacity: 0.5 }}
+                                whileTap={{ scale: 0.95 }}
+                            />
                         </motion.a>
                     ))}
                 </div>
-            </header>
-
-            <main className='w-screen h-screen bg-black overflow-hidden'>
-                <motion.img
-                    className='w-full h-full object-cover pointer-events-none'
-                    initial={{ opacity: 0.5, scale: 1.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 2, ease: 'anticipate' }}
-                    src={i}
-                    alt='background'
-                />
-            </main>
+            </footer>
         </>
     )
 }
