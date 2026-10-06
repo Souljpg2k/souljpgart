@@ -19,7 +19,7 @@ function App() {
 
     return (
         <>
-            <main className='relative w-screen h-screen bg-black text-white font-display select-none'>
+            <main className='relative w-screen h-screen overflow-hidden bg-black text-white font-display select-none'>
                 <div className='inset-0 grid items-center justify-center absolute z-20'>
                     <section className='text-center'>
                         <h1 className='text-5xl'>souljpgart</h1>
