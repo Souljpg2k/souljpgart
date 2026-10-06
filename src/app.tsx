@@ -37,7 +37,7 @@ function App() {
                     <motion.img
                         className='w-full h-full object-cover pointer-events-none'
                         initial={{ opacity: 0.1, scale: 1.5 }}
-                        animate={{ opacity: 0.3, scale: 1 }}
+                        animate={{ opacity: 0.5, scale: 1 }}
                         transition={{ duration: 2, ease: 'anticipate' }}
                         src={Bg}
                         alt='background'
