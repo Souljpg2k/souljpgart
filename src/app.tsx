@@ -2,7 +2,7 @@ import bg from './assets/default.webp'
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArtstation, faInstagram, faTwitter, faKoFi } from '@fortawesome/free-brands-svg-icons'
-import { faLink, faInfinity } from '@fortawesome/free-solid-svg-icons'
+import { faLink } from '@fortawesome/free-solid-svg-icons'
 
 interface Link {
     id: number
@@ -70,9 +70,6 @@ function App() {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className='absolute bottom-3 w-dvw flex justify-center text-white select-none'>
-                    <FontAwesomeIcon icon={faInfinity} />
                 </div>
             </main >
         </>
