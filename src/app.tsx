@@ -18,12 +18,12 @@ function App() {
         <>
             <main className='relative w-dvw h-dvh overflow-hidden bg-black text-white font-sans select-none'>
                 <div className='w-dvw h-3/6 absolute'>
-                    <div className='absolute px-10 py-4 sm:px-14 sm:py-8'>
+                    <div className='absolute px-10 py-4 sm:px-14 sm:py-8 z-30'>
                         <h1>Home</h1>
                         <span>01.</span>
                     </div>
                     <span className='absolute bottom-4 right-10 sm:right-14'>TH</span>
-                    <img className='w-full h-full object-cover pointer-events-none' src={bg} alt='bg' />
+                    <img className='animate-fade-in w-full h-full object-cover pointer-events-none' src={bg} alt='bg' />
 
                     <div className='px-10 py-12 sm:px-14'>
                         <h1 className="sm:text-6xl text-4xl font-semibold font-heading tracking-tight">SOULJPGART</h1>
