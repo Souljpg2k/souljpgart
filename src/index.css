@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: "Poppins", sans-serif;
-  --color-black: #302e31;
-  --color-white: #eeeeee;
+  --font-heading: "Oswald", sans-serif;
+  --color-black: #212121;
+  --color-white: #f2f2f2;
 }
